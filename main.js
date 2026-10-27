@@ -521,7 +521,7 @@
         if (!waBtn) {
           waBtn = document.createElement('a');
           waBtn.id        = 'success-whatsapp-btn';
-          waBtn.className = 'btn btn-primary';
+          waBtn.className = 'btn btn-whatsapp';
           waBtn.style.cssText = 'margin-top:16px;display:inline-flex;align-items:center;gap:8px;';
           waBtn.target    = '_blank';
           waBtn.rel       = 'noopener';
