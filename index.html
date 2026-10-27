@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WDI Design Studio — Bespoke Cabinetry & Turnkey Interior Fit-Outs, Kenya</title>
+  <meta name="description" content="WDI Design Studio delivers bespoke cabinetry, luxury kitchen and bathroom renovations, custom wardrobes and interior fit-outs for prestigious homes and developments across Kenya." />
+  <meta property="og:title" content="WDI Design Studio — Spaces Designed Around the Way You Live" />
+  <meta property="og:description" content="Bespoke cabinetry, renovations and interior fit-outs across Kenya. From first measurement to white-glove installation." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ═══════════════════════════════════════════════════════════
+       WDI DESIGN STUDIO — BESPOKE LUXURY LANDING PAGE STYLES
+       ═══════════════════════════════════════════════════════════ */
+
+    :root {
+      --gold-glow: rgba(200, 169, 110, 0.28);
+      --gold-gradient: linear-gradient(135deg, #dfc090 0%, #c8a96e 50%, #9e7d44 100%);
+      --surface-glass: rgba(26, 23, 20, 0.72);
+      --surface-glass-border: rgba(255, 255, 255, 0.09);
+    }
+
+    /* ─── HERO REDESIGN ────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: calc(var(--nav-h) + 30px);
+      padding-bottom: 70px;
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 38%;
+      transform: scale(1.04);
+      transition: transform 12s cubic-bezier(0.1, 0.8, 0.2, 1);
+      filter: brightness(0.88);
+    }
+    .hero:hover .hero__bg img {
+      transform: scale(1.08);
+    }
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 75% 35%, rgba(200, 169, 110, 0.08) 0%, transparent 60%),
+        linear-gradient(90deg, rgba(14, 13, 12, 0.95) 0%, rgba(14, 13, 12, 0.82) 42%, rgba(14, 13, 12, 0.42) 75%, rgba(14, 13, 12, 0.7) 100%),
+        linear-gradient(to top, rgba(14, 13, 12, 0.96) 0%, transparent 35%);
+      z-index: 1;
+    }
+    .hero__container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1320px;
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero__content {
+      max-width: 660px;
+    }
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 16px;
+      background: rgba(200, 169, 110, 0.1);
+      border: 1px solid rgba(200, 169, 110, 0.28);
+      border-radius: var(--r-pill);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--c-gold-light);
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .hero__badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--c-gold);
+      box-shadow: 0 0 8px var(--c-gold);
+      animation: pulseGlow 2.5s infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.5; }
+    }
+    .hero__title {
+      font-family: var(--ff-display);
+      font-size: clamp(2.8rem, 5.5vw, 5.6rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+      margin-bottom: 22px;
+    }
+    .hero__title-em {
+      font-style: italic;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+    .hero__sub {
+      font-size: clamp(0.95rem, 1.25vw, 1.12rem);
+      color: var(--c-white-70);
+      line-height: 1.75;
+      margin-bottom: 34px;
+      font-weight: 300;
+      max-width: 580px;
+    }
+    .hero__actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .btn-gold {
+      background: var(--gold-gradient);
+      color: #0e0d0c;
+      font-weight: 500;
+      box-shadow: 0 8px 30px var(--gold-glow);
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(200, 169, 110, 0.45);
+      filter: brightness(1.08);
+    }
+    .btn-glass {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--c-white);
+      backdrop-filter: blur(12px);
+    }
+    .btn-glass:hover {
+      border-color: var(--c-gold);
+      color: var(--c-gold);
+      background: rgba(200, 169, 110, 0.08);
+      transform: translateY(-2px);
+    }
+    .btn-whatsapp-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--c-gold-light);
+      padding: 10px 18px;
+      border-radius: var(--r-pill);
+      background: rgba(200, 169, 110, 0.08);
+      border: 1px solid rgba(200, 169, 110, 0.28);
+      transition: all 0.25s;
+    }
+    .btn-whatsapp-hero:hover {
+      background: rgba(200, 169, 110, 0.18);
+      border-color: var(--c-gold);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+    .hero__trust {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      flex-wrap: wrap;
+    }
+    .hero__trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.78rem;
+      color: var(--c-white-70);
+    }
+    .hero__trust-stars {
+      color: var(--c-gold);
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+    }
+
+    /* ─── HERO FLOATING ATELIER CARD (RIGHT COLUMN) ───────── */
+    .hero__card-wrap {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .hero__atelier-card {
+      background: rgba(20, 18, 16, 0.75);
+      border: 1px solid rgba(200, 169, 110, 0.25);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-radius: var(--r-lg);
+      padding: 24px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(200, 169, 110, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero__atelier-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold-gradient);
+    }
+    .atelier-card__badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .atelier-card__tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      font-weight: 500;
+    }
+    .atelier-card__status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.65rem;
+      color: var(--c-gold-light);
+      background: rgba(200, 169, 110, 0.12);
+      border: 1px solid rgba(200, 169, 110, 0.24);
+      padding: 3px 10px;
+      border-radius: var(--r-pill);
+    }
+    .atelier-card__status-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--c-gold);
+      box-shadow: 0 0 8px rgba(200, 169, 110, 0.8);
+    }
+    .atelier-card__image {
+      width: 100%;
+      height: 200px;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .atelier-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease-out);
+    }
+    .hero__atelier-card:hover .atelier-card__image img {
+      transform: scale(1.05);
+    }
+    .atelier-card__title {
+      font-family: var(--ff-display);
+      font-size: 1.4rem;
+      line-height: 1.2;
+      margin-bottom: 8px;
+      color: var(--c-white);
+    }
+    .atelier-card__desc {
+      font-size: 0.82rem;
+      color: var(--c-white-70);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+    .atelier-card__specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding-block: 14px;
+      border-block: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 18px;
+    }
+    .atelier-spec-item strong {
+      display: block;
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--c-gold);
+      margin-bottom: 2px;
+    }
+    .atelier-spec-item span {
+      font-size: 0.78rem;
+      color: var(--c-white-70);
+    }
+    .atelier-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .atelier-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      font-weight: 500;
+      transition: gap 0.25s;
+    }
+    .atelier-card__link:hover { gap: 10px; color: var(--c-gold-light); }
+
+    /* ─── STATS RIBBON ─────────────────────────────────────── */
+    .stats-ribbon {
+      background: #141210;
+      border-block: 1px solid rgba(255, 255, 255, 0.08);
+      padding-block: 36px;
+      position: relative;
+    }
+    .stats-ribbon__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    .stat-box {
+      text-align: center;
+      position: relative;
+    }
+    .stat-box:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 15%;
+      height: 70%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(200, 169, 110, 0.3), transparent);
+    }
+    .stat-box__num {
+      font-family: var(--ff-display);
+      font-size: clamp(2.6rem, 4vw, 3.8rem);
+      font-weight: 300;
+      color: var(--c-gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-box__label {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--c-white-70);
+    }
+
+    /* ─── INTERACTIVE ATELIER INSPIRATION GALLERY ──────────── */
+    .atelier-gallery {
+      background: var(--c-bg);
+      padding-block: var(--section-pad);
+      position: relative;
+    }
+    .atelier-gallery__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .gallery-filter-tabs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .gallery-tab-btn {
+      padding: 8px 18px;
+      border-radius: var(--r-pill);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c-white-70);
+      background: rgba(255, 255, 255, 0.03);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .gallery-tab-btn:hover,
+    .gallery-tab-btn.active {
+      border-color: var(--c-gold);
+      background: rgba(200, 169, 110, 0.15);
+      color: var(--c-gold);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+    }
+    .gallery-card {
+      position: relative;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      transition: transform 0.4s var(--ease-out), border-color 0.4s, box-shadow 0.4s;
+    }
+    .gallery-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(200, 169, 110, 0.4);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(200, 169, 110, 0.08);
+    }
+    .gallery-card.col-7 { grid-column: span 7; }
+    .gallery-card.col-5 { grid-column: span 5; }
+    .gallery-card.col-6 { grid-column: span 6; }
+    .gallery-card__img-wrap {
+      width: 100%;
+      height: 380px;
+      position: relative;
+      overflow: hidden;
+    }
+    .gallery-card__img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s var(--ease-out);
+    }
+    .gallery-card:hover .gallery-card__img-wrap img {
+      transform: scale(1.06);
+    }
+    .gallery-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14, 13, 12, 0.95) 0%, rgba(14, 13, 12, 0.5) 40%, transparent 80%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 32px;
+    }
+    .gallery-card__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.64rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: 8px;
+    }
+    .gallery-card__title {
+      font-family: var(--ff-display);
+      font-size: 1.65rem;
+      line-height: 1.15;
+      margin-bottom: 8px;
+      color: var(--c-white);
+    }
+    .gallery-card__meta {
+      font-size: 0.84rem;
+      color: var(--c-white-70);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .gallery-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .gallery-card__spec-pill {
+      font-size: 0.7rem;
+      color: var(--c-gold-light);
+      background: rgba(200, 169, 110, 0.12);
+      padding: 3px 10px;
+      border-radius: var(--r-pill);
+    }
+
+    /* ─── THREE PILLARS (SERVICES ELEVATED) ───────────────── */
+    .pillars {
+      background: var(--c-bg-2);
+      padding-block: var(--section-pad);
+      position: relative;
+    }
+    .pillars__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .pillar-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.35s var(--ease-out);
+      position: relative;
+    }
+    .pillar-card:hover {
+      border-color: rgba(200, 169, 110, 0.35);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    .pillar-card__media {
+      height: 240px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar-card__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s var(--ease-out);
+    }
+    .pillar-card:hover .pillar-card__media img {
+      transform: scale(1.08);
+    }
+    .pillar-card__badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(14, 13, 12, 0.85);
+      border: 1px solid rgba(200, 169, 110, 0.3);
+      padding: 4px 12px;
+      border-radius: var(--r-pill);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      backdrop-filter: blur(8px);
+    }
+    .pillar-card__body {
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .pillar-card__num {
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      color: var(--c-gold);
+      margin-bottom: 12px;
+      font-weight: 300;
+    }
+    .pillar-card__title {
+      font-family: var(--ff-display);
+      font-size: 1.65rem;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .pillar-card__desc {
+      font-size: 0.86rem;
+      color: var(--c-white-70);
+      line-height: 1.65;
+      margin-bottom: 22px;
+    }
+    .pillar-card__features {
+      list-style: none;
+      margin-bottom: 24px;
+      margin-top: auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 16px;
+    }
+    .pillar-card__features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: var(--c-white-70);
+      margin-bottom: 8px;
+    }
+    .pillar-card__features li svg {
+      width: 14px;
+      height: 14px;
+      color: var(--c-gold);
+      flex-shrink: 0;
+    }
+    .pillar-card__action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      font-weight: 500;
+      transition: gap 0.25s;
+    }
+    .pillar-card__action:hover { gap: 12px; color: var(--c-gold-light); }
+
+    /* ─── FINISH ATELIER (REAL MATERIAL CARDS) ─────────────── */
+    .finish-atelier {
+      background: var(--c-bg);
+      padding-block: var(--section-pad);
+    }
+    .finish-bands-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .band-item-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s var(--ease-out);
+      text-decoration: none;
+    }
+    .band-item-card:hover {
+      border-color: var(--c-gold);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+    }
+    .band-item-card__swatch {
+      height: 120px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .band-item-card__swatch img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.85);
+      transition: transform 0.5s;
+    }
+    .band-item-card:hover .band-item-card__swatch img {
+      transform: scale(1.1);
+      filter: brightness(1);
+    }
+    .band-item-card__num-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(14, 13, 12, 0.85);
+      color: var(--c-gold);
+      font-family: var(--ff-display);
+      font-size: 0.9rem;
+      padding: 2px 8px;
+      border-radius: var(--r-sm);
+      border: 1px solid rgba(200, 169, 110, 0.3);
+    }
+    .band-item-card__content {
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .band-item-card__title {
+      font-family: var(--ff-display);
+      font-size: 1.25rem;
+      line-height: 1.2;
+      margin-bottom: 6px;
+      color: var(--c-white);
+    }
+    .band-item-card__material {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: 10px;
+    }
+    .band-item-card__desc {
+      font-size: 0.78rem;
+      color: var(--c-white-40);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .band-item-card__arrow {
+      margin-top: auto;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+    .band-item-card:hover .band-item-card__arrow { gap: 10px; }
+
+    /* ─── BEFORE / AFTER TRANSFORMATION SECTION ────────────── */
+    .transformation {
+      background: var(--c-bg-2);
+      padding-block: var(--section-pad);
+      position: relative;
+    }
+    .transformation__grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .transformation__media-box {
+      position: relative;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 1px solid rgba(200, 169, 110, 0.25);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      height: 480px;
+    }
+    .transformation__media-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .transformation__badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: rgba(14, 13, 12, 0.88);
+      border: 1px solid rgba(200, 169, 110, 0.35);
+      backdrop-filter: blur(12px);
+      padding: 12px 20px;
+      border-radius: var(--r-md);
+    }
+    .transformation__badge strong {
+      display: block;
+      color: var(--c-gold);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .transformation__badge span {
+      font-size: 0.85rem;
+      color: var(--c-white);
+    }
+    .scope-pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+      margin-bottom: 32px;
+    }
+    .scope-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 6px 14px;
+      border-radius: var(--r-pill);
+      font-size: 0.72rem;
+      color: var(--c-white-70);
+    }
+
+    /* ─── THE ATELIER JOURNEY (PROCESS) ────────────────────── */
+    .journey {
+      background: var(--c-bg);
+      padding-block: var(--section-pad);
+      position: relative;
+    }
+    .journey__steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 50px;
+      position: relative;
+    }
+    .journey__step-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      padding: 36px 28px;
+      position: relative;
+      transition: all 0.3s;
+    }
+    .journey__step-card:hover {
+      border-color: rgba(200, 169, 110, 0.4);
+      transform: translateY(-4px);
+    }
+    .journey__step-num {
+      font-family: var(--ff-display);
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba(200, 169, 110, 0.25);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .journey__step-title {
+      font-family: var(--ff-display);
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+      line-height: 1.25;
+      color: var(--c-white);
+    }
+    .journey__step-desc {
+      font-size: 0.82rem;
+      color: var(--c-white-70);
+      line-height: 1.6;
+    }
+
+    /* ─── EDITORIAL TESTIMONIALS ───────────────────────────── */
+    .testimonials-section {
+      background: var(--c-bg-2);
+      padding-block: var(--section-pad);
+    }
+    .testimonials__grid-new {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .testimonial-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      padding: 36px 30px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .testimonial-card:hover {
+      border-color: rgba(200, 169, 110, 0.3);
+    }
+    .testimonial-card__stars {
+      color: var(--c-gold);
+      letter-spacing: 3px;
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+    .testimonial-card__quote {
+      font-family: var(--ff-display);
+      font-size: 1.15rem;
+      line-height: 1.5;
+      color: var(--c-white);
+      margin-bottom: 24px;
+      font-style: italic;
+      font-weight: 300;
+    }
+    .testimonial-card__author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 18px;
+    }
+    .testimonial-card__avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(200, 169, 110, 0.15);
+      border: 1px solid var(--c-gold);
+      color: var(--c-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    .testimonial-card__name {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--c-white);
+    }
+    .testimonial-card__location {
+      font-size: 0.74rem;
+      color: var(--c-gold);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── GRAND CONSULTATION FINALE ────────────────────────── */
+    .consultation-cta {
+      background: radial-gradient(circle at 50% 50%, rgba(200, 169, 110, 0.07) 0%, transparent 70%), #141210;
+      border-block: 1px solid rgba(200, 169, 110, 0.25);
+      padding-block: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .consultation-cta::before {
+      content: 'WDI';
+      position: absolute;
+      font-family: var(--ff-display);
+      font-size: clamp(140px, 24vw, 320px);
+      font-weight: 300;
+      color: rgba(200, 169, 110, 0.03);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      letter-spacing: 0.15em;
+    }
+    .consultation-cta__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin-inline: auto;
+      text-align: center;
+    }
+    .consultation-cta__eyebrow {
+      font-family: var(--ff-display);
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--c-gold);
+      margin-bottom: 16px;
+    }
+    .consultation-cta__title {
+      font-family: var(--ff-display);
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .consultation-cta__sub {
+      font-size: 1.05rem;
+      color: var(--c-white-70);
+      max-width: 580px;
+      margin-inline: auto;
+      margin-bottom: 38px;
+      line-height: 1.7;
+    }
+    .consultation-cta__actions {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    /* ─── RESPONSIVE BREAKPOINTS ───────────────────────────── */
+    @media (max-width: 1100px) {
+      .hero__container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: left;
+      }
+      .hero__card-wrap {
+        justify-content: flex-start;
+      }
+      .gallery-card.col-7,
+      .gallery-card.col-5,
+      .gallery-card.col-6 {
+        grid-column: span 12;
+      }
+      .pillars__grid {
+        grid-template-columns: 1fr;
+      }
+      .finish-bands-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .transformation__grid {
+        grid-template-columns: 1fr;
+      }
+      .journey__steps-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .testimonials__grid-new {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding-top: calc(var(--nav-h) + 20px);
+        min-height: auto;
+      }
+      .stats-ribbon__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .stat-box:not(:last-child)::after {
+        display: none;
+      }
+      .finish-bands-grid {
+        grid-template-columns: 1fr;
+      }
+      .journey__steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .transformation__media-box {
+        height: 320px;
+      }
+      .hero__actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero__actions .btn {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="WDI Design Studio home">
+      <span class="nav__logo-mark">WDI</span>
+      <span class="nav__logo-sub">Design Studio · Nairobi</span>
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="index.html" class="nav__link active" id="nav-home">Home</a></li>
+      <li class="nav__dropdown" id="nav-services-dropdown">
+        <button class="nav__dropdown-toggle" id="nav-products-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Products and services menu">
+          Bespoke Services
+          <svg class="nav__chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg>
+        </button>
+        <div class="nav__dropdown-panel" role="menu" aria-label="Products and services">
+          <!-- LEFT COLUMN: CATEGORIES -->
+          <div class="nav__cat-list" role="tablist" aria-label="Product categories">
+            <div class="nav__cat-item active" data-target="cat-kitchen" role="tab" tabindex="0">
+              <span>Gourmet Kitchens</span>
+              <svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg>
+            </div>
+            <div class="nav__cat-item" data-target="cat-wardrobes" role="tab" tabindex="0">
+              <span>Bespoke Wardrobes</span>
+              <svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg>
+            </div>
+            <div class="nav__cat-item" data-target="cat-bathrooms" role="tab" tabindex="0">
+              <span>Bathroom Vanities</span>
+              <svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg>
+            </div>
+            <div class="nav__cat-item" data-target="cat-storage" role="tab" tabindex="0">
+              <span>TV Consoles &amp; Media Walls</span>
+              <svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg>
+            </div>
+            <div class="nav__cat-item" data-target="cat-office" role="tab" tabindex="0">
+              <span>Executive Desks &amp; Boardrooms</span>
+              <svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg>
+            </div>
+            <div class="nav__cat-item" data-target="cat-wholehouse" role="tab" tabindex="0">
+              <span>Turnkey Renovations</span>
+              <svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: SUB-MENUS -->
+          <div class="nav__sub-content">
+            <!-- 01 KITCHEN -->
+            <div class="nav__sub-panel active" id="cat-kitchen">
+              <a href="cabinetry.html#band-5" class="nav__sub-item">
+                <div class="nav__sub-title">Solid Wood &amp; Artisan Hardwoods <span>→</span></div>
+                <div class="nav__sub-detail">Band 05 · Natural solid timber crafted in kiln-dried Mvule, Mahogany and Meru Oak to specification.</div>
+              </a>
+              <a href="cabinetry.html#band-3" class="nav__sub-item">
+                <div class="nav__sub-title">Satin Shaker &amp; Custom Sprayed MDF <span>→</span></div>
+                <div class="nav__sub-detail">Band 03 &amp; 04 · Elegant recessed rail cabinetry with flawless multi-coat polyurethane lacquer finish.</div>
+              </a>
+              <a href="cabinetry.html#band-1" class="nav__sub-item">
+                <div class="nav__sub-title">Modern UV Gloss &amp; Super-Matte <span>→</span></div>
+                <div class="nav__sub-detail">Band 01 &amp; 02 · Sleek mirror gloss and anti-fingerprint velvet matte with German edgebanding.</div>
+              </a>
+              <a href="renovations.html#reno-kitchen" class="nav__sub-item">
+                <div class="nav__sub-title">Full Turnkey Kitchen Renovations <span>→</span></div>
+                <div class="nav__sub-detail">Granite &amp; quartz waterfall islands, splashbacks, plumbing coordination &amp; electrical integration.</div>
+              </a>
+              <div class="nav__sub-footer">
+                <span class="nav__sub-footer-text">Cabinetry Atelier</span>
+                <a href="cabinetry.html" class="nav__sub-footer-btn">Explore 5 Finish Bands →</a>
+              </div>
+            </div>
+
+            <!-- 02 WARDROBES -->
+            <div class="nav__sub-panel" id="cat-wardrobes">
+              <a href="cabinetry.html#wardrobes" class="nav__sub-item">
+                <div class="nav__sub-title">Luxury Walk-In Dressing Suites <span>→</span></div>
+                <div class="nav__sub-detail">Floor-to-ceiling boutique layouts with sensor warm-LED illumination, central islands &amp; jewelry trays.</div>
+              </a>
+              <a href="cabinetry.html#wardrobes" class="nav__sub-item">
+                <div class="nav__sub-title">Silent Sliding Systems <span>→</span></div>
+                <div class="nav__sub-detail">Smooth ceiling-hung aluminium tracks with fluted wood, smoked glass, or acoustic felt inserts.</div>
+              </a>
+              <a href="cabinetry.html#wardrobes" class="nav__sub-item">
+                <div class="nav__sub-title">Custom Fitted Hinged Wardrobes <span>→</span></div>
+                <div class="nav__sub-detail">Concealed Blum soft-close hinges, internal drawer dividers, pull-out trouser racks &amp; shoe galleries.</div>
+              </a>
+              <div class="nav__sub-footer">
+                <span class="nav__sub-footer-text">Closet Architecture</span>
+                <a href="cabinetry.html#wardrobes" class="nav__sub-footer-btn">View Wardrobe Specs →</a>
+              </div>
+            </div>
+
+            <!-- 03 BATHROOMS -->
+            <div class="nav__sub-panel" id="cat-bathrooms">
+              <a href="renovations.html#reno-bathroom" class="nav__sub-item">
+                <div class="nav__sub-title">Floating Vanity Units <span>→</span></div>
+                <div class="nav__sub-detail">Contemporary moisture-resistant vanities with integrated quartz basins &amp; ambient under-glow.</div>
+              </a>
+              <a href="renovations.html#reno-bathroom" class="nav__sub-item">
+                <div class="nav__sub-title">Turnkey Spa Renovations <span>→</span></div>
+                <div class="nav__sub-detail">Full coordination: wall &amp; floor tiling, frameless glass enclosures, niches &amp; sanitary fittings.</div>
+              </a>
+              <div class="nav__sub-footer">
+                <span class="nav__sub-footer-text">Bathroom Renovation Scope</span>
+                <a href="renovations.html#reno-bathroom" class="nav__sub-footer-btn">See Bathrooms →</a>
+              </div>
+            </div>
+
+            <!-- 04 STORAGE & TV -->
+            <div class="nav__sub-panel" id="cat-storage">
+              <a href="portfolio.html?filter=cabinetry" class="nav__sub-item">
+                <div class="nav__sub-title">Architectural TV Media Walls <span>→</span></div>
+                <div class="nav__sub-detail">Acoustic timber slats, bookmatched marble ledges, indirect warm-LED and concealed wiring chases.</div>
+              </a>
+              <a href="portfolio.html?filter=cabinetry" class="nav__sub-item">
+                <div class="nav__sub-title">Bespoke Bookcases &amp; Wine Cellars <span>→</span></div>
+                <div class="nav__sub-detail">Floor-to-ceiling study libraries and climate-ready glass-enclosed timber wine displays.</div>
+              </a>
+              <div class="nav__sub-footer">
+                <span class="nav__sub-footer-text">Living Joinery</span>
+                <a href="portfolio.html?filter=cabinetry" class="nav__sub-footer-btn">View Living Projects →</a>
+              </div>
+            </div>
+
+            <!-- 05 OFFICE -->
+            <div class="nav__sub-panel" id="cat-office">
+              <a href="contact.html?service=other" class="nav__sub-item">
+                <div class="nav__sub-title">Custom Executive Suites <span>→</span></div>
+                <div class="nav__sub-detail">Architectural desks with leather inlays, wireless charging docks &amp; lockable cabinetry.</div>
+              </a>
+              <a href="contact.html?service=other" class="nav__sub-item">
+                <div class="nav__sub-title">Solid Timber Boardroom Tables <span>→</span></div>
+                <div class="nav__sub-detail">Mvule and Meru Oak statement tables crafted for 8 to 22 seats with seamless connectivity.</div>
+              </a>
+              <div class="nav__sub-footer">
+                <span class="nav__sub-footer-text">Commercial Millwork</span>
+                <a href="contact.html?service=other" class="nav__sub-footer-btn">Request Commercial Quote →</a>
+              </div>
+            </div>
+
+            <!-- 06 WHOLE HOUSE -->
+            <div class="nav__sub-panel" id="cat-wholehouse">
+              <a href="renovations.html" class="nav__sub-item">
+                <div class="nav__sub-title">Turnkey Villa &amp; Penthouse Fit-Outs <span>→</span></div>
+                <div class="nav__sub-detail">End-to-end design, workshop fabrication, tiling, ceilings, lighting &amp; site management.</div>
+              </a>
+              <a href="cabinetry.html#band-5" class="nav__sub-item">
+                <div class="nav__sub-title">Hardwood Interior Doors &amp; Paneling <span>→</span></div>
+                <div class="nav__sub-detail">Solid timber flush doors, architectural architraves, skirtings and fluted wall features.</div>
+              </a>
+              <div class="nav__sub-footer">
+                <span class="nav__sub-footer-text">Turnkey Scope</span>
+                <a href="renovations.html" class="nav__sub-footer-btn">Full Renovation Details →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li><a href="portfolio.html" class="nav__link" id="nav-portfolio">Portfolio</a></li>
+      <li><a href="contact.html" class="nav__link nav__cta" id="nav-contact">Book Consultation</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="nav__mobile" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="index.html" class="active">Home</a>
+  <a href="cabinetry.html">Cabinetry &amp; Finish Bands</a>
+  <a href="renovations.html">Renovations &amp; Fit-Outs</a>
+  <a href="portfolio.html">Our Portfolio</a>
+  <a href="contact.html">Request a Quote</a>
+  <div style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);">
+    <a href="https://wa.me/254718923740" class="btn btn-whatsapp-hero" style="justify-content:center;display:flex;">
+      WhatsApp Direct: 0718 923 740
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO SECTION
+     ═══════════════════════════════════════════════════════════ -->
+<section class="hero" aria-label="Hero">
+  <div class="hero__bg">
+    <img src="images/luxury-kitchen-island.jpg" alt="Bespoke luxury kitchen installation by WDI Design Studio with marble waterfall island and fluted oak cabinetry" loading="eager" fetchpriority="high" />
+  </div>
+  <div class="hero__overlay"></div>
+
+  <div class="hero__container">
+    <!-- LEFT: EDITORIAL COPY -->
+    <div class="hero__content">
+      <div class="hero__badge">
+        <span class="hero__badge-dot"></span>
+        <span>Bespoke Architectural Millwork &amp; Fit-Outs · Nairobi</span>
+      </div>
+
+      <h1 class="hero__title">
+        Spaces designed<br/>around the way<br/><span class="hero__title-em">you live.</span>
+      </h1>
+
+      <p class="hero__sub">
+        Custom cabinetry, luxury kitchen &amp; bathroom renovations, bespoke walk-in wardrobes and turnkey interior fit-outs — crafted with precision in Nairobi for Kenya's most discerning private residences and architectural developers.
+      </p>
+
+      <div class="hero__actions">
+        <a href="contact.html?stage=planning&details=Requesting%20a%20private%20architectural%20consultation%20for%20a%20bespoke%20residential%20interior%20project." class="btn btn-gold" id="hero-quote-cta">
+          Request Private Consultation
+          <svg class="btn-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/></svg>
+        </a>
+        <a href="portfolio.html" class="btn btn-glass" id="hero-portfolio-cta">
+          Explore Portfolio
+        </a>
+        <a href="https://wa.me/254718923740" class="btn-whatsapp-hero" target="_blank" rel="noopener" aria-label="Chat with WDI Design Studio on WhatsApp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.23 8.23z"/></svg>
+          WhatsApp Studio
+        </a>
+      </div>
+
+      <div class="hero__trust">
+        <div class="hero__trust-item">
+          <span class="hero__trust-stars">★★★★★</span>
+          <span><strong>4.9 / 5</strong> across 150+ Nairobi Homes</span>
+        </div>
+        <div class="hero__trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--c-gold)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Blum® Certified Hardware &amp; Lifetime Runner Guarantee</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: FLOATING ATELIER HIGHLIGHT CARD -->
+    <div class="hero__card-wrap">
+      <div class="hero__atelier-card">
+        <div class="atelier-card__badge-row">
+          <span class="atelier-card__tag">Featured Residential Commission</span>
+          <span class="atelier-card__status">
+            <span class="atelier-card__status-dot"></span>
+            Delivered · Karen
+          </span>
+        </div>
+
+        <div class="atelier-card__image">
+          <img src="images/luxury-living-joinery.jpg" alt="Architectural TV media wall and fluted timber joinery in Muthaiga Villa" />
+        </div>
+
+        <h3 class="atelier-card__title">The Karen Villa Millwork Suite</h3>
+        <p class="atelier-card__desc">
+          Bespoke fluted timber feature walls, waterfall Calacatta island joinery, and integrated warm-LED lighting channels.
+        </p>
+
+        <div class="atelier-card__specs">
+          <div class="atelier-spec-item">
+            <strong>Finish Band</strong>
+            <span>Band 05 Natural Mvule</span>
+          </div>
+          <div class="atelier-spec-item">
+            <strong>Hardware</strong>
+            <span>Blum® Legrabox Tip-On</span>
+          </div>
+        </div>
+
+        <div class="atelier-card__footer">
+          <span style="font-size:0.75rem;color:var(--c-white-40);">Turnkey Coordination · 6 Weeks</span>
+          <a href="portfolio.html" class="atelier-card__link">
+            View Case Study <span>→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     STATS RIBBON
+     ═══════════════════════════════════════════════════════════ -->
+<section class="stats-ribbon" aria-label="Key Studio Metrics">
+  <div class="container">
+    <div class="stats-ribbon__grid">
+      <div class="stat-box">
+        <div class="stat-box__num" data-count="150">150+</div>
+        <div class="stat-box__label">Bespoke Projects Delivered</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box__num">5</div>
+        <div class="stat-box__label">Master Finish Bands</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box__num">10<span style="font-size:2rem;color:var(--c-gold-light);">+</span></div>
+        <div class="stat-box__label">Years Architectural Experience</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box__num">100<span style="font-size:2rem;color:var(--c-gold-light);">%</span></div>
+        <div class="stat-box__label">Kenyan Workshop Precision</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     INTERACTIVE ATELIER INSPIRATION SHOWCASE
+     ═══════════════════════════════════════════════════════════ -->
+<section class="atelier-gallery" aria-labelledby="gallery-heading">
+  <div class="container">
+    <div class="atelier-gallery__header">
+      <div>
+        <div class="eyebrow" style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+          <span style="display:block;width:36px;height:1px;background:var(--c-gold)"></span>
+          <span class="t-label">Curated Portfolio</span>
+        </div>
+        <h2 class="t-h1" id="gallery-heading">Living spaces crafted<br/>to your standard.</h2>
+      </div>
+
+      <div class="gallery-filter-tabs">
+        <a href="portfolio.html?filter=all" class="gallery-tab-btn active">All Disciplines</a>
+        <a href="portfolio.html?filter=kitchens" class="gallery-tab-btn">Gourmet Kitchens</a>
+        <a href="portfolio.html?filter=wardrobes" class="gallery-tab-btn">Dressing Suites</a>
+        <a href="portfolio.html?filter=cabinetry" class="gallery-tab-btn">Media Joinery</a>
+        <a href="portfolio.html?filter=bathrooms" class="gallery-tab-btn">Spa Bathrooms</a>
+      </div>
+    </div>
+
+    <div class="gallery-grid">
+      <!-- CARD 1: KITCHEN (WIDE) -->
+      <div class="gallery-card col-7">
+        <div class="gallery-card__img-wrap">
+          <img src="images/luxury-kitchen-island.jpg" alt="Luxury Calacatta marble waterfall island and fluted oak cabinetry" loading="lazy" />
+          <div class="gallery-card__overlay">
+            <span class="gallery-card__tag">Gourmet Kitchens · Karen Villa</span>
+            <h3 class="gallery-card__title">The Fluted Dark Oak &amp; Calacatta Island</h3>
+            <p class="gallery-card__meta">
+              Handcrafted fluted timber door profiles, recessed LED channel backlighting, and waterfall engineered marble island.
+            </p>
+            <div class="gallery-card__footer">
+              <span class="gallery-card__spec-pill">Band 05 Natural Timber · Blum® Soft Close</span>
+              <a href="portfolio.html" class="atelier-card__link">View Details →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2: MEDIA WALL (TALL/MEDIUM) -->
+      <div class="gallery-card col-5">
+        <div class="gallery-card__img-wrap">
+          <img src="images/luxury-living-joinery.jpg" alt="Architectural TV media wall with acoustic wood slats and marble shelf" loading="lazy" />
+          <div class="gallery-card__overlay">
+            <span class="gallery-card__tag">Architectural Joinery · Muthaiga</span>
+            <h3 class="gallery-card__title">Fluted Walnut Media Suite</h3>
+            <p class="gallery-card__meta">
+              Acoustic slat panels with floating Nero Marquina shelf and concealed AV cable management.
+            </p>
+            <div class="gallery-card__footer">
+              <span class="gallery-card__spec-pill">Custom Stain · Indirect LED</span>
+              <a href="portfolio.html" class="atelier-card__link">View Details →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3: WARDROBE (MEDIUM) -->
+      <div class="gallery-card col-6">
+        <div class="gallery-card__img-wrap">
+          <img src="images/wardrobe.jpg" alt="Walk-in closet with integrated lighting and velvet drawer inserts" loading="lazy" />
+          <div class="gallery-card__overlay">
+            <span class="gallery-card__tag">Dressing Suites · Runda Estate</span>
+            <h3 class="gallery-card__title">Floor-to-Ceiling Walk-In Dressing Room</h3>
+            <p class="gallery-card__meta">
+              Warm-sensor vertical LED channels, smoked glass wardrobe fronts, pull-out shoe galleries &amp; central jewelry island.
+            </p>
+            <div class="gallery-card__footer">
+              <span class="gallery-card__spec-pill">Band 03 Sprayed Lacquer · Velvet Inserts</span>
+              <a href="portfolio.html" class="atelier-card__link">View Details →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4: BATHROOM (MEDIUM) -->
+      <div class="gallery-card col-6">
+        <div class="gallery-card__img-wrap">
+          <img src="images/bathroom-reno.jpg" alt="Modern floating bathroom vanity and large-format porcelain tiling" loading="lazy" />
+          <div class="gallery-card__overlay">
+            <span class="gallery-card__tag">Turnkey Renovation · Westlands Penthouse</span>
+            <h3 class="gallery-card__title">Minimalist Spa Vanity &amp; Wetroom</h3>
+            <p class="gallery-card__meta">
+              Custom waterproof vanity with quartz double basin, frameless glass shower enclosure, and brass fixtures.
+            </p>
+            <div class="gallery-card__footer">
+              <span class="gallery-card__spec-pill">Moisture-Proof Core · Quartz Countertop</span>
+              <a href="renovations.html#reno-bathroom" class="atelier-card__link">View Details →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:48px;">
+      <a href="portfolio.html" class="btn btn-glass" style="padding-inline:42px;">
+        View All Completed Projects (150+)
+        <svg class="btn-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     THREE PILLARS OF CRAFT (SERVICES ELEVATED)
+     ═══════════════════════════════════════════════════════════ -->
+<section class="pillars" aria-labelledby="pillars-heading">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="t-label">Our Core Disciplines</span>
+      </div>
+      <h2 class="t-h1" id="pillars-heading">Precision engineering.<br/>Artisan execution.</h2>
+      <p class="t-body">We combine architectural spatial planning, German Blum hardware, and master joinery to deliver spaces that age gracefully and function flawlessly.</p>
+    </div>
+
+    <div class="pillars__grid">
+      <!-- PILLAR 01: CABINETRY -->
+      <div class="pillar-card">
+        <div class="pillar-card__media">
+          <span class="pillar-card__badge">Atelier Cabinetry</span>
+          <img src="images/hero-kitchen.jpg" alt="Custom cabinetry kitchen installation" loading="lazy" />
+        </div>
+        <div class="pillar-card__body">
+          <span class="pillar-card__num">01 / ARCHITECTURAL MILLWORK</span>
+          <h3 class="pillar-card__title">Bespoke Custom Cabinetry</h3>
+          <p class="pillar-card__desc">
+            Kitchens, walk-in dressing suites, architectural bookcases, and bathroom vanity consoles — customized down to the millimeter.
+          </p>
+          <ul class="pillar-card__features">
+            <li>
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M13.5 3.5 6 11 2.5 7.5"/></svg>
+              5 Curated finish bands from Melamine to Solid Timber
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M13.5 3.5 6 11 2.5 7.5"/></svg>
+              Concealed Blum® soft-close hinges &amp; drawer slides
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M13.5 3.5 6 11 2.5 7.5"/></svg>
+              Integrated sensor LED channel illumination
+            </li>
+          </ul>
+          <a href="cabinetry.html" class="pillar-card__action">
+            Explore Finish Bands &amp; Hardware <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- PILLAR 02: RENOVATIONS -->
+      <div class="pillar-card">
+        <div class="pillar-card__media">
+          <span class="pillar-card__badge">Turnkey Projects</span>
+          <img src="images/bathroom-reno.jpg" alt="Luxury bathroom renovation with porcelain surfaces" loading="lazy" />
+        </div>
+        <div class="pillar-card__body">
+          <span class="pillar-card__num">02 / COMPLETE FIT-OUTS</span>
+          <h3 class="pillar-card__title">Turnkey Interior Renovations</h3>
+          <p class="pillar-card__desc">
+            Single-source accountability for full home transformations — managing design, demolition, masonry, plumbing, tiling, and joinery under one roof.
+          </p>
+          <ul class="pillar-card__features">
+            <li>
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M13.5 3.5 6 11 2.5 7.5"/></svg>
+              Gourmet kitchen &amp; spa bathroom transformations
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M13.5 3.5 6 11 2.5 7.5"/></svg>
+              Italian porcelain, marble &amp; engineered stone tops
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M13.5 3.5 6 11 2.5 7.5"/></svg>
+              Dedicated site manager &amp; transparent schedule
+            </li>
+          </ul>
+          <a href="renovations.html" class="pillar-card__action">
+            View Renovation Capabilities <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- PILLAR 03: SOLID WOOD -->
+      <div class="pillar-card">
+        <div class="pillar-card__media">
+          <span class="pillar-card__badge">Heritage Joinery</span>
+          <img src="images/solid-wood.jpg" alt="Solid timber grain craftsmanship" loading="lazy" />
+        </div>
+        <div class="pillar-card__body">
+          <span class="pillar-card__num">03 / MASTER WOODCRAFT</span>
+          <h3 class="pillar-card__title">Solid East African Timber</h3>
+          <p class="pillar-card__desc">
+            Statement architectural woodwork crafted from kiln-dried Mvule, Meru Oak, and Mahogany — natural timber character that lasts generations.
+          </p>
+          <ul class="pillar-card__features">
+            <li>
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M13.5 3.5 6 11 2.5 7.5"/></svg>
+              Sustainable kiln-dried regional hardwood sourcing
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M13.5 3.5 6 11 2.5 7.5"/></svg>
+              Solid interior doors, architraves &amp; timber ceilings
+            </li>
+            <li>
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M13.5 3.5 6 11 2.5 7.5"/></svg>
+              Hand-rubbed natural oil &amp; hard-wax finishes
+            </li>
+          </ul>
+          <a href="portfolio.html?filter=cabinetry" class="pillar-card__action">
+            Discover Solid Wood Works <span>→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FINISH ATELIER (AUTHENTIC MATERIAL PREVIEW)
+     ═══════════════════════════════════════════════════════════ -->
+<section class="finish-atelier" aria-labelledby="finishes-heading">
+  <div class="container">
+    <div class="section-header" style="text-align:center;max-width:700px;margin-inline:auto;">
+      <div class="eyebrow" style="justify-content:center;">
+        <span class="t-label">Material &amp; Specification Atelier</span>
+      </div>
+      <h2 class="t-h1" id="finishes-heading">Five Distinct Finish Bands.</h2>
+      <p class="t-body" style="margin-inline:auto;">
+        From durable super-matte surfaces to heirloom solid timber, our finish bands allow you to align architectural aesthetic, tactile feel, and investment level.
+      </p>
+    </div>
+
+    <div class="finish-bands-grid">
+      <!-- BAND 01 -->
+      <a href="cabinetry.html#band-1" class="band-item-card">
+        <div class="band-item-card__swatch">
+          <img src="images/hero-kitchen.jpg" alt="Melamine and super matte finish sample" />
+          <span class="band-item-card__num-tag">01</span>
+        </div>
+        <div class="band-item-card__content">
+          <span class="band-item-card__material">Melamine &amp; Matte</span>
+          <h3 class="band-item-card__title">Super-Matte &amp; Woodgrain</h3>
+          <p class="band-item-card__desc">
+            German PUR edge-sealed moisture resistant core. Resists fingerprints, daily heat and scuffs with 40+ textured stone &amp; oak decors.
+          </p>
+          <span class="band-item-card__arrow">View Band 01 Specs →</span>
+        </div>
+      </a>
+
+      <!-- BAND 02 -->
+      <a href="cabinetry.html#band-2" class="band-item-card">
+        <div class="band-item-card__swatch">
+          <img src="images/luxury-kitchen-island.jpg" alt="High gloss UV lacquer finish sample" />
+          <span class="band-item-card__num-tag">02</span>
+        </div>
+        <div class="band-item-card__content">
+          <span class="band-item-card__material">UV Lacquer &amp; Gloss</span>
+          <h3 class="band-item-card__title">Mirror High-Gloss</h3>
+          <p class="band-item-card__desc">
+            European UV-cured acrylic and mirror lacquer boards. Reflects natural ambient light with deep gloss clarity and scratch-guard topcoat.
+          </p>
+          <span class="band-item-card__arrow">View Band 02 Specs →</span>
+        </div>
+      </a>
+
+      <!-- BAND 03 -->
+      <a href="cabinetry.html#band-3" class="band-item-card">
+        <div class="band-item-card__swatch">
+          <img src="images/wardrobe.jpg" alt="Shaker and custom sprayed lacquer finish sample" />
+          <span class="band-item-card__num-tag">03</span>
+        </div>
+        <div class="band-item-card__content">
+          <span class="band-item-card__material">Sprayed Satin MDF</span>
+          <h3 class="band-item-card__title">Timeless Shaker</h3>
+          <p class="band-item-card__desc">
+            Architectural recessed rail profiles spray-painted in multi-coat polyurethane. Color-matched to any custom Benjamin Moore or Dulux shade.
+          </p>
+          <span class="band-item-card__arrow">View Band 03 Specs →</span>
+        </div>
+      </a>
+
+      <!-- BAND 04 -->
+      <a href="cabinetry.html#band-4" class="band-item-card">
+        <div class="band-item-card__swatch">
+          <img src="images/luxury-living-joinery.jpg" alt="Fluted and raised profile finish sample" />
+          <span class="band-item-card__num-tag">04</span>
+        </div>
+        <div class="band-item-card__content">
+          <span class="band-item-card__material">Fluted &amp; Raised Panel</span>
+          <h3 class="band-item-card__title">Architectural Profiles</h3>
+          <p class="band-item-card__desc">
+            Precision CNC-milled fluted ribs, reeded details, and classical raised bolection profiles for dramatic feature islands and cabinetry.
+          </p>
+          <span class="band-item-card__arrow">View Band 04 Specs →</span>
+        </div>
+      </a>
+
+      <!-- BAND 05 -->
+      <a href="cabinetry.html#band-5" class="band-item-card">
+        <div class="band-item-card__swatch">
+          <img src="images/solid-wood.jpg" alt="Natural solid wood timber finish sample" />
+          <span class="band-item-card__num-tag">05</span>
+        </div>
+        <div class="band-item-card__content">
+          <span class="band-item-card__material">Solid African Hardwood</span>
+          <h3 class="band-item-card__title">Heirloom Solid Timber</h3>
+          <p class="band-item-card__desc">
+            100% natural kiln-dried Mvule, Meru Oak, and Mahogany. Hand-rubbed with natural Scandinavian hard-wax oils that deepen with age.
+          </p>
+          <span class="band-item-card__arrow">View Band 05 Specs →</span>
+        </div>
+      </a>
+    </div>
+
+    <div style="text-align:center;margin-top:40px;">
+      <a href="cabinetry.html" class="btn btn-outline">
+        Compare Full Band Specifications &amp; Pricing →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     BEFORE & AFTER TRANSFORMATION SPOTLIGHT
+     ═══════════════════════════════════════════════════════════ -->
+<section class="transformation" aria-labelledby="trans-heading">
+  <div class="container">
+    <div class="transformation__grid">
+      <div class="transformation__media-box">
+        <img src="images/before-after.jpg" alt="Before and After transformation of kitchen and living space by WDI Design Studio" loading="lazy" />
+        <div class="transformation__badge">
+          <strong>Full Scope Transformation</strong>
+          <span>Runda Residence · 4-Week Turnkey Handover</span>
+        </div>
+      </div>
+
+      <div class="transformation__content">
+        <div class="eyebrow" style="display:flex;align-items:center;gap:14px;margin-bottom:18px;">
+          <span style="display:block;width:36px;height:1px;background:var(--c-gold)"></span>
+          <span class="t-label">Case Study Spotlight</span>
+        </div>
+        <h2 class="t-h2" id="trans-heading">The transformative power of thoughtful interior architecture.</h2>
+        <p class="t-body" style="margin-top:16px;">
+          This property in Runda underwent a comprehensive overhaul — removing dividing walls to introduce an open-concept gourmet kitchen with quartz countertops, soft-close shaker joinery, and coordinated architectural floor tiling.
+        </p>
+
+        <div class="scope-pill-list">
+          <span class="scope-pill">Structural Wall Removal</span>
+          <span class="scope-pill">Quartz Waterfall Countertops</span>
+          <span class="scope-pill">Custom Shaker Band 03</span>
+          <span class="scope-pill">Porcelain Slab Flooring</span>
+          <span class="scope-pill">Concealed Appliance Integration</span>
+        </div>
+
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="renovations.html" class="btn btn-primary">
+            Explore Renovation Projects
+          </a>
+          <a href="contact.html" class="btn btn-outline">
+            Discuss Your Space
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     THE 4-STAGE ATELIER JOURNEY (PROCESS)
+     ═══════════════════════════════════════════════════════════ -->
+<section class="journey" aria-labelledby="journey-heading">
+  <div class="container">
+    <div class="section-header" style="text-align:center;max-width:700px;margin-inline:auto;">
+      <div class="eyebrow" style="justify-content:center;">
+        <span class="t-label">Our Client Process</span>
+      </div>
+      <h2 class="t-h1" id="journey-heading">From initial consultation to white-glove handover.</h2>
+      <p class="t-body" style="margin-inline:auto;">
+        We manage every phase in-house — ensuring precision measurements, transparent costing, and flawless installation without project delays.
+      </p>
+    </div>
+
+    <div class="journey__steps-grid">
+      <!-- STEP 01 -->
+      <div class="journey__step-card">
+        <div class="journey__step-num">01</div>
+        <h3 class="journey__step-title">3D Site Survey &amp; Spatial Planning</h3>
+        <p class="journey__step-desc">
+          We visit your property to assess architectural sightlines, plumbing/electrical runs, and conduct precision laser measurements.
+        </p>
+      </div>
+
+      <!-- STEP 02 -->
+      <div class="journey__step-card">
+        <div class="journey__step-num">02</div>
+        <h3 class="journey__step-title">Material Curation &amp; Detailed Quote</h3>
+        <p class="journey__step-desc">
+          You select your finish band and hardware; we provide complete 3D elevations and an itemized, transparent quotation.
+        </p>
+      </div>
+
+      <!-- STEP 03 -->
+      <div class="journey__step-card">
+        <div class="journey__step-num">03</div>
+        <h3 class="journey__step-title">Precision Workshop Fabrication</h3>
+        <p class="journey__step-desc">
+          Your cabinetry is custom manufactured in our Industrial Area workshop with automated edge-banding and strict QA inspections.
+        </p>
+      </div>
+
+      <!-- STEP 04 -->
+      <div class="journey__step-card">
+        <div class="journey__step-num">04</div>
+        <h3 class="journey__step-title">White-Glove On-Site Installation</h3>
+        <p class="journey__step-desc">
+          Our master installers fit the units, align Blum hardware, seal all surfaces, and complete a final snag-free inspection.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     EDITORIAL CLIENT PRAISE
+     ═══════════════════════════════════════════════════════════ -->
+<section class="testimonials-section" aria-labelledby="reviews-heading">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="t-label">Client Trust &amp; Reviews</span>
+      </div>
+      <h2 class="t-h1" id="reviews-heading">Trusted in Kenya's finest residences.</h2>
+    </div>
+
+    <div class="testimonials__grid-new">
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__quote">
+          "The kitchen is beyond what we imagined. WDI’s attention to detail — from the shadowline handles to the smooth quartz island seams — is exceptional. They deliver genuine European-standard millwork right here in Nairobi."
+        </p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar">A</div>
+          <div>
+            <div class="testimonial-card__name">Amina K.</div>
+            <div class="testimonial-card__location">Private Residence · Karen, Nairobi</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__quote">
+          "As an architect and developer in Westlands, finding a cabinetry partner who respects tight tolerances and deadlines is rare. WDI’s in-house fabrication and Blum hardware integration give our villas an immediate edge."
+        </p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar">P</div>
+          <div>
+            <div class="testimonial-card__name">Peter M.</div>
+            <div class="testimonial-card__location">Property Developer · Westlands &amp; Kitisuru</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__quote">
+          "Our full master bathroom and walk-in closet renovation was seamless. They coordinated the plumbing, large porcelain slabs, and sensor-illuminated wardrobes without a single delay. Zero stress from start to finish."
+        </p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar">S</div>
+          <div>
+            <div class="testimonial-card__name">Sandra W.</div>
+            <div class="testimonial-card__location">Homeowner · Runda Estate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     GRAND CONSULTATION CTA
+     ═══════════════════════════════════════════════════════════ -->
+<section class="consultation-cta" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="consultation-cta__inner">
+      <p class="consultation-cta__eyebrow">Your Space. Masterfully Crafted.</p>
+      <h2 class="consultation-cta__title" id="cta-heading">Ready to design a home<br/>that inspires you every day?</h2>
+      <p class="consultation-cta__sub">
+        Schedule an architectural site consultation or discuss your drawings with our design studio team in Nairobi.
+      </p>
+
+      <div class="consultation-cta__actions">
+        <a href="contact.html?stage=planning&details=Requesting%20a%20project%20quotation%20and%20on-site%20consultation." class="btn btn-gold" id="footer-cta-quote">
+          Request a Quotation
+          <svg class="btn-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5"/></svg>
+        </a>
+        <a href="https://wa.me/254718923740" class="btn btn-glass" target="_blank" rel="noopener">
+          WhatsApp Direct: 0718 923 740
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__brand-name">WDI Design Studio</div>
+        <div class="footer__brand-tag">Bespoke Cabinetry · Renovations · Turnkey Fit-Outs</div>
+        <p class="footer__desc">
+          Crafting bespoke kitchens, walk-in closets, and turnkey architectural spaces for discerning homeowners and property developers throughout Kenya.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer__heading">Navigation</div>
+        <ul class="footer__links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="cabinetry.html">Cabinetry &amp; Finish Bands</a></li>
+          <li><a href="renovations.html">Renovations &amp; Tiling</a></li>
+          <li><a href="portfolio.html">Completed Portfolio</a></li>
+          <li><a href="contact.html">Request a Quotation</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer__heading">Disciplines</div>
+        <ul class="footer__links" role="list">
+          <li><a href="cabinetry.html">Gourmet Kitchens</a></li>
+          <li><a href="cabinetry.html#wardrobes">Walk-In Closets</a></li>
+          <li><a href="renovations.html#reno-bathroom">Luxury Bathroom Vanities</a></li>
+          <li><a href="portfolio.html?filter=cabinetry">Architectural TV Media Walls</a></li>
+          <li><a href="cabinetry.html#band-5">Solid African Hardwood Pieces</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer__heading">Studio &amp; Workshop</div>
+        <div class="footer__contact-item">
+          <strong>Phone &amp; WhatsApp</strong>
+          <a href="https://wa.me/254718923740" style="color:var(--c-gold);font-weight:500;">0718 923 740</a>
+        </div>
+        <div class="footer__contact-item">
+          <strong>Atelier Location</strong>
+          Kayaba Lane, Enterprise Road<br/>
+          Industrial Area, Nairobi, Kenya<br/>
+          P.O. Box 9274 – 00100
+        </div>
+        <div class="footer__contact-item">
+          <strong>Service Coverage</strong>
+          Karen · Runda · Muthaiga · Kitisuru · Westlands · Kenya
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 WDI Design Studio. All rights reserved. Master Cabinetry &amp; Interior Architecture.</p>
+      <div class="footer__legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Warranties</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

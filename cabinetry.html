@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cabinetry Finishes — WDI Design Studio</title>
+  <meta name="description" content="Choose from five clearly defined finish bands — Melamine, Gloss/UV, Shaker, Raised MDF and Solid Wood. WDI Design Studio custom cabinetry across Kenya." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .bands-intro {
+      background: var(--c-surface);
+      border-bottom: 1px solid var(--c-border);
+      padding-block: 60px;
+    }
+    .bands-intro__inner {
+      max-width: 720px;
+    }
+    .bands-section { background: var(--c-bg); }
+
+    .band-cards { display: flex; flex-direction: column; gap: 24px; }
+
+    .band-card {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 0;
+      overflow: hidden;
+    }
+    .band-card__img {
+      height: 100%;
+      min-height: 280px;
+      border-radius: 0;
+      overflow: hidden;
+    }
+    .band-card__content {
+      padding: 40px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .band-card__num {
+      font-family: var(--ff-display);
+      font-size: 4.5rem;
+      font-weight: 300;
+      color: var(--c-gold-dim);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .band-card__material {
+      font-size: 0.78rem;
+      color: var(--c-white-40);
+      line-height: 1.5;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .band-card__desc {
+      font-size: 0.92rem;
+      color: var(--c-white-70);
+      line-height: 1.7;
+      max-width: 500px;
+    }
+    .band-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--c-border);
+    }
+    .band-card__ideal {
+      font-size: 0.78rem;
+      color: var(--c-white-40);
+    }
+    .band-card__ideal strong { color: var(--c-white-70); display: block; margin-bottom: 2px; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
+
+    /* Colour-code the number for each band */
+    #band-1 { border-left: 3px solid hsl(30,25%,48%); }
+    #band-2 { border-left: 3px solid hsl(210,18%,48%); }
+    #band-3 { border-left: 3px solid hsl(40,22%,52%); }
+    #band-4 { border-left: 3px solid hsl(25,20%,44%); }
+    #band-5 { border-left: 3px solid var(--c-gold); }
+
+    /* SWATCH PALETTE */
+    .palette-section { background: var(--c-surface); padding-block: 80px; border-block: 1px solid var(--c-border); }
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 10px;
+      margin-top: 40px;
+    }
+    .palette-chip {
+      height: 80px;
+      border-radius: var(--r-md);
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .palette-chip:hover { transform: scale(1.06); }
+    .palette-chip__name {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    }
+
+    /* NOTE BOX */
+    .note-box {
+      background: rgba(200,169,110,0.06);
+      border: 1px solid rgba(200,169,110,0.2);
+      border-radius: var(--r-lg);
+      padding: 28px 32px;
+      margin-top: 48px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .note-box__icon {
+      font-size: 1.2rem;
+      color: var(--c-gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .note-box__text { font-size: 0.88rem; color: var(--c-white-40); line-height: 1.7; }
+    .note-box__text strong { color: var(--c-gold); }
+
+    @media (max-width: 768px) {
+      .band-card { grid-template-columns: 1fr; }
+      .band-card__img { height: 220px; min-height: unset; }
+      .band-card__content { padding: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-mark">WDI</span>
+      <span class="nav__logo-sub">Design Studio</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html" class="nav__link" id="nav-home">Home</a></li>
+      <li class="nav__dropdown" id="nav-services-dropdown">
+        <button class="nav__dropdown-toggle active" id="nav-products-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Products and services menu">
+          Products &amp; Services
+          <svg class="nav__chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg>
+        </button>
+        <div class="nav__dropdown-panel" role="menu" aria-label="Products and services">
+          <!-- LEFT COLUMN: CATEGORIES -->
+          <div class="nav__cat-list" role="tablist" aria-label="Product categories">
+            <div class="nav__cat-item active" data-target="cat-kitchen" role="tab" tabindex="0">
+              <span>Kitchen</span>
+              <svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg>
+            </div>
+            <div class="nav__cat-item" data-target="cat-wardrobes" role="tab" tabindex="0">
+              <span>Wardrobes</span>
+              <svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg>
+            </div>
+            <div class="nav__cat-item" data-target="cat-office" role="tab" tabindex="0">
+              <span>Office Furniture</span>
+              <svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg>
+            </div>
+            <div class="nav__cat-item" data-target="cat-bathrooms" role="tab" tabindex="0">
+              <span>Bathroom Vanities</span>
+              <svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg>
+            </div>
+            <div class="nav__cat-item" data-target="cat-laundry" role="tab" tabindex="0">
+              <span>Laundry &amp; Linen Cabinets</span>
+              <svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg>
+            </div>
+            <div class="nav__cat-item" data-target="cat-storage" role="tab" tabindex="0">
+              <span>Television Units &amp; Storage Cabinets</span>
+              <svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg>
+            </div>
+            <div class="nav__cat-item" data-target="cat-wholehouse" role="tab" tabindex="0">
+              <span>Whole House Customization Solutions</span>
+              <svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg>
+            </div>
+            <div class="nav__cat-item" data-target="cat-appliances" role="tab" tabindex="0">
+              <span>Electric Appliances</span>
+              <svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: SUB-MENUS WITH SUPPLEMENTAL DETAILS -->
+          <div class="nav__sub-content">
+            <!-- 01 KITCHEN -->
+            <div class="nav__sub-panel active" id="cat-kitchen">
+              <a href="cabinetry.html#band-3" class="nav__sub-item">
+                <div class="nav__sub-title">Classic <span>→</span></div>
+                <div class="nav__sub-detail">Band 03 &amp; 04 · Shaker-style &amp; spray-painted raised MDF panels with custom colour choice.</div>
+              </a>
+              <a href="cabinetry.html#band-5" class="nav__sub-item">
+                <div class="nav__sub-title">Solid Wood <span>→</span></div>
+                <div class="nav__sub-detail">Band 05 · Natural solid timber crafted in mvule, mahogany and Meru oak to specification.</div>
+              </a>
+              <a href="cabinetry.html#band-1" class="nav__sub-item">
+                <div class="nav__sub-title">Modern Kitchen <span>→</span></div>
+                <div class="nav__sub-detail">Band 01 &amp; 02 · Sleek UV glazed high-gloss and versatile melamine finishes with clean minimalist lines.</div>
+              </a>
+              <a href="renovations.html#reno-kitchen" class="nav__sub-item">
+                <div class="nav__sub-title">Full Kitchen Renovations <span>→</span></div>
+                <div class="nav__sub-detail">Granite &amp; quartz worktops, splashbacks, plumbing coordination &amp; full turnkey installation.</div>
+              </a>
+              <div class="nav__sub-footer">
+                <span class="nav__sub-footer-text">Kitchen Design &amp; Fabrication</span>
+                <a href="cabinetry.html" class="nav__sub-footer-btn">Explore Kitchen Finishes →</a>
+              </div>
+            </div>
+
+            <!-- 02 WARDROBES -->
+            <div class="nav__sub-panel" id="cat-wardrobes">
+              <a href="cabinetry.html#wardrobes" class="nav__sub-item">
+                <div class="nav__sub-title">Walk-In Closets <span>→</span></div>
+                <div class="nav__sub-detail">Floor-to-ceiling luxury walk-in wardrobes with sensor warm-LED illumination &amp; vanity counters.</div>
+              </a>
+              <a href="cabinetry.html#wardrobes" class="nav__sub-item">
+                <div class="nav__sub-title">Sliding Door Wardrobes <span>→</span></div>
+                <div class="nav__sub-detail">Space-saving sliding systems on silent running aluminium tracks with mirrored or woodgrain fronts.</div>
+              </a>
+              <a href="cabinetry.html#wardrobes" class="nav__sub-item">
+                <div class="nav__sub-title">Fitted Hinged Closets <span>→</span></div>
+                <div class="nav__sub-detail">Soft-close hinged doors, internal drawer stacks, velvet jewelry inserts &amp; pull-out trouser racks.</div>
+              </a>
+              <div class="nav__sub-footer">
+                <span class="nav__sub-footer-text">Custom Closets</span>
+                <a href="cabinetry.html#wardrobes" class="nav__sub-footer-btn">View Wardrobe Specs →</a>
+              </div>
+            </div>
+
+            <!-- 03 OFFICE -->
+            <div class="nav__sub-panel" id="cat-office">
+              <a href="contact.html?service=other" class="nav__sub-item">
+                <div class="nav__sub-title">Executive Desks <span>→</span></div>
+                <div class="nav__sub-detail">Custom-dimensioned executive desks with concealed cable management, drawers &amp; privacy panels.</div>
+              </a>
+              <a href="contact.html?service=other" class="nav__sub-item">
+                <div class="nav__sub-title">Boardroom Tables <span>→</span></div>
+                <div class="nav__sub-detail">Solid mvule and contemporary hardwood veneer conference tables crafted for 8 to 20 seats.</div>
+              </a>
+              <a href="contact.html?service=other" class="nav__sub-item">
+                <div class="nav__sub-title">Filing &amp; Storage Cabinets <span>→</span></div>
+                <div class="nav__sub-detail">Full-height lockable credenzas, archival cabinets and architectural executive wall units.</div>
+              </a>
+              <div class="nav__sub-footer">
+                <span class="nav__sub-footer-text">Commercial &amp; Home Office</span>
+                <a href="contact.html?service=other" class="nav__sub-footer-btn">Request Commercial Quote →</a>
+              </div>
+            </div>
+
+            <!-- 04 BATHROOMS -->
+            <div class="nav__sub-panel" id="cat-bathrooms">
+              <a href="renovations.html#reno-bathroom" class="nav__sub-item">
+                <div class="nav__sub-title">Floating Vanities <span>→</span></div>
+                <div class="nav__sub-detail">Contemporary floating vanities with engineered quartz tops &amp; moisture-resistant cabinetry.</div>
+              </a>
+              <a href="renovations.html#reno-bathroom" class="nav__sub-item">
+                <div class="nav__sub-title">Freestanding Cabinets <span>→</span></div>
+                <div class="nav__sub-detail">Traditional shaker and solid timber vanities offering maximum under-sink and drawer capacity.</div>
+              </a>
+              <a href="renovations.html#reno-bathroom" class="nav__sub-item">
+                <div class="nav__sub-title">Full Bathroom Renovations <span>→</span></div>
+                <div class="nav__sub-detail">Complete coordination: vanities, wall &amp; floor tiling, frameless glass shower screens &amp; plumbing.</div>
+              </a>
+              <div class="nav__sub-footer">
+                <span class="nav__sub-footer-text">Bathroom Renovation Scope</span>
+                <a href="renovations.html#reno-bathroom" class="nav__sub-footer-btn">See Bathroom Details →</a>
+              </div>
+            </div>
+
+            <!-- 05 LAUNDRY -->
+            <div class="nav__sub-panel" id="cat-laundry">
+              <a href="renovations.html#reno-kitchen" class="nav__sub-item">
+                <div class="nav__sub-title">Integrated Laundry Cabinets <span>→</span></div>
+                <div class="nav__sub-detail">Recessed washer/dryer housings, utility sink cabinetry and pull-out detergent organizers.</div>
+              </a>
+              <a href="cabinetry.html#wardrobes" class="nav__sub-item">
+                <div class="nav__sub-title">Full-Height Linen Closets <span>→</span></div>
+                <div class="nav__sub-detail">Deep adjustable ventilated shelving, towel cubbies &amp; built-in laundry hampers for hallways &amp; baths.</div>
+              </a>
+              <div class="nav__sub-footer">
+                <span class="nav__sub-footer-text">Utility &amp; Linen Solutions</span>
+                <a href="contact.html?service=cabinetry" class="nav__sub-footer-btn">Consult With Us →</a>
+              </div>
+            </div>
+
+            <!-- 06 STORAGE & TV -->
+            <div class="nav__sub-panel" id="cat-storage">
+              <a href="portfolio.html?filter=cabinetry" class="nav__sub-item">
+                <div class="nav__sub-title">Media Feature Walls <span>→</span></div>
+                <div class="nav__sub-detail">Acoustic timber slat backdrops, concealed wiring chases, ambient backlighting &amp; floating consoles.</div>
+              </a>
+              <a href="portfolio.html?filter=cabinetry" class="nav__sub-item">
+                <div class="nav__sub-title">Living Room Storage &amp; Bookcases <span>→</span></div>
+                <div class="nav__sub-detail">Tailored open shelving, display vitrines with tempered glass &amp; recessed accent illumination.</div>
+              </a>
+              <div class="nav__sub-footer">
+                <span class="nav__sub-footer-text">Living Room Joinery</span>
+                <a href="portfolio.html?filter=cabinetry" class="nav__sub-footer-btn">View Living Projects →</a>
+              </div>
+            </div>
+
+            <!-- 07 WHOLE HOUSE -->
+            <div class="nav__sub-panel" id="cat-wholehouse">
+              <a href="renovations.html" class="nav__sub-item">
+                <div class="nav__sub-title">Turnkey Interior Renovations <span>→</span></div>
+                <div class="nav__sub-detail">Complete home coordination: design, fabrication, on-site installation and multi-trade management.</div>
+              </a>
+              <a href="renovations.html#reno-tiling" class="nav__sub-item">
+                <div class="nav__sub-title">Tiling, Surfaces &amp; Flooring <span>→</span></div>
+                <div class="nav__sub-detail">Porcelain, stone, engineered hardwood and LVT installations with precise floor transitions.</div>
+              </a>
+              <a href="cabinetry.html#band-5" class="nav__sub-item">
+                <div class="nav__sub-title">Architectural Woodwork &amp; Doors <span>→</span></div>
+                <div class="nav__sub-detail">Solid hardwood interior doors, matching architraves, skirtings &amp; ceiling timber accents.</div>
+              </a>
+              <div class="nav__sub-footer">
+                <span class="nav__sub-footer-text">Turnkey Home Solutions</span>
+                <a href="renovations.html" class="nav__sub-footer-btn">Our Full Scope →</a>
+              </div>
+            </div>
+
+            <!-- 08 APPLIANCES -->
+            <div class="nav__sub-panel" id="cat-appliances">
+              <a href="renovations.html#reno-kitchen" class="nav__sub-item">
+                <div class="nav__sub-title">Inbuilt Kitchen Appliances <span>→</span></div>
+                <div class="nav__sub-detail">Dimensional coordination and cabinetry integration for ovens, hobs, extractor hoods and sinks.</div>
+              </a>
+              <a href="contact.html" class="nav__sub-item">
+                <div class="nav__sub-title">Premium Cabinet Hardware <span>→</span></div>
+                <div class="nav__sub-detail">Soft-close concealed hinges, heavy-duty drawer runners, corner pull-out carousels and handles.</div>
+              </a>
+              <div class="nav__sub-footer">
+                <span class="nav__sub-footer-text">Fittings &amp; Integration</span>
+                <a href="contact.html" class="nav__sub-footer-btn">Get Consultation →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li><a href="portfolio.html" class="nav__link" id="nav-portfolio">Our Work</a></li>
+      <li><a href="contact.html" class="nav__link nav__cta" id="nav-contact">Get a Quote</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav__mobile" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <div class="nav__mobile-group-label" id="mobile-services-toggle" role="button" aria-expanded="false" tabindex="0">
+    Products &amp; Services
+    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg>
+  </div>
+  <div class="nav__mobile-sub" id="mobile-services-sub">
+    <!-- 01 KITCHEN -->
+    <div class="nav__mobile-cat-header open"><span>Kitchen</span><svg viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg></div>
+    <div class="nav__mobile-cat-body open">
+      <a href="cabinetry.html#band-3" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Classic</span><span class="nav__mobile-sub-detail">Band 03 &amp; 04 · Shaker &amp; Raised MDF</span></a>
+      <a href="cabinetry.html#band-5" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Solid Wood</span><span class="nav__mobile-sub-detail">Band 05 · Natural Mvule, Mahogany &amp; Oak</span></a>
+      <a href="cabinetry.html#band-1" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Modern Kitchen</span><span class="nav__mobile-sub-detail">Band 01 &amp; 02 · Melamine &amp; High-Gloss</span></a>
+      <a href="renovations.html#reno-kitchen" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Full Kitchen Renovations</span><span class="nav__mobile-sub-detail">Worktops, splashbacks &amp; turnkey install</span></a>
+    </div>
+
+    <!-- 02 WARDROBES -->
+    <div class="nav__mobile-cat-header"><span>Wardrobes</span><svg viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg></div>
+    <div class="nav__mobile-cat-body">
+      <a href="cabinetry.html#wardrobes" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Walk-In Closets</span><span class="nav__mobile-sub-detail">Floor-to-ceiling with LED sensor lights</span></a>
+      <a href="cabinetry.html#wardrobes" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Sliding Door Wardrobes</span><span class="nav__mobile-sub-detail">Silent tracks with mirror or woodgrain</span></a>
+      <a href="cabinetry.html#wardrobes" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Fitted Hinged Closets</span><span class="nav__mobile-sub-detail">Soft-close with internal drawer organizers</span></a>
+    </div>
+
+    <!-- 03 OFFICE -->
+    <div class="nav__mobile-cat-header"><span>Office Furniture</span><svg viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg></div>
+    <div class="nav__mobile-cat-body">
+      <a href="contact.html?service=other" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Executive Desks</span><span class="nav__mobile-sub-detail">Integrated wire routing &amp; drawers</span></a>
+      <a href="contact.html?service=other" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Boardroom Tables</span><span class="nav__mobile-sub-detail">Solid timber &amp; veneer meeting tables</span></a>
+      <a href="contact.html?service=other" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Filing &amp; Storage Cabinets</span><span class="nav__mobile-sub-detail">Lockable archival office storage</span></a>
+    </div>
+
+    <!-- 04 BATHROOMS -->
+    <div class="nav__mobile-cat-header"><span>Bathroom Vanities</span><svg viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg></div>
+    <div class="nav__mobile-cat-body">
+      <a href="renovations.html#reno-bathroom" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Floating Vanities</span><span class="nav__mobile-sub-detail">Moisture-resistant with quartz tops</span></a>
+      <a href="renovations.html#reno-bathroom" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Freestanding Cabinets</span><span class="nav__mobile-sub-detail">Maximum under-sink and drawer capacity</span></a>
+      <a href="renovations.html#reno-bathroom" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Full Bathroom Renovations</span><span class="nav__mobile-sub-detail">Tiling, shower glass &amp; vanity coordination</span></a>
+    </div>
+
+    <!-- 05 LAUNDRY -->
+    <div class="nav__mobile-cat-header"><span>Laundry &amp; Linen Cabinets</span><svg viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg></div>
+    <div class="nav__mobile-cat-body">
+      <a href="renovations.html#reno-kitchen" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Integrated Laundry Cabinets</span><span class="nav__mobile-sub-detail">Utility sink &amp; washer/dryer housings</span></a>
+      <a href="cabinetry.html#wardrobes" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Full-Height Linen Closets</span><span class="nav__mobile-sub-detail">Deep adjustable ventilated shelving</span></a>
+    </div>
+
+    <!-- 06 TV & STORAGE -->
+    <div class="nav__mobile-cat-header"><span>Television Units &amp; Storage</span><svg viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg></div>
+    <div class="nav__mobile-cat-body">
+      <a href="portfolio.html?filter=cabinetry" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Media Feature Walls</span><span class="nav__mobile-sub-detail">Acoustic wood slats &amp; floating consoles</span></a>
+      <a href="portfolio.html?filter=cabinetry" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Living Room Storage &amp; Bookcases</span><span class="nav__mobile-sub-detail">Custom bookcases &amp; accent glass display</span></a>
+    </div>
+
+    <!-- 07 WHOLE HOUSE -->
+    <div class="nav__mobile-cat-header"><span>Whole House Solutions</span><svg viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg></div>
+    <div class="nav__mobile-cat-body">
+      <a href="renovations.html" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Turnkey Interior Renovations</span><span class="nav__mobile-sub-detail">End-to-end design &amp; project management</span></a>
+      <a href="renovations.html#reno-tiling" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Tiling, Surfaces &amp; Flooring</span><span class="nav__mobile-sub-detail">Porcelain, stone &amp; engineered wood</span></a>
+      <a href="cabinetry.html#band-5" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Architectural Woodwork &amp; Doors</span><span class="nav__mobile-sub-detail">Solid timber doors, skirtings &amp; accents</span></a>
+    </div>
+
+    <!-- 08 APPLIANCES -->
+    <div class="nav__mobile-cat-header"><span>Electric Appliances</span><svg viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4-4 4"/></svg></div>
+    <div class="nav__mobile-cat-body">
+      <a href="renovations.html#reno-kitchen" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Inbuilt Kitchen Appliances</span><span class="nav__mobile-sub-detail">Precision dimensional cabinetry housing</span></a>
+      <a href="contact.html" class="nav__mobile-sub-item"><span class="nav__mobile-sub-title">Premium Cabinet Hardware</span><span class="nav__mobile-sub-detail">Soft-close runners, hinges &amp; pull-outs</span></a>
+    </div>
+  </div>
+  <a href="portfolio.html">Our Work</a>
+  <a href="contact.html" class="btn btn-primary" style="margin-top:12px;text-align:center;justify-content:center;">Get a Quote</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero" aria-label="Cabinetry page header">
+  <div class="page-hero__bg">
+    <img src="images/wardrobe.jpg" alt="Premium fitted wardrobe by WDI Design Studio" loading="eager" />
+  </div>
+  <div class="page-hero__overlay"></div>
+  <div class="page-hero__content">
+    <p class="t-label">02 / Cabinetry</p>
+    <h1 class="t-h1">Choose your<br/>cabinetry finish.</h1>
+  </div>
+</section>
+
+<!-- INTRO -->
+<div class="bands-intro">
+  <div class="container">
+    <div class="bands-intro__inner reveal">
+      <p class="t-body">Five clearly defined finish bands help clients compare the look, material and level of finish that suits their design, use and budget. Final specifications are confirmed during consultation.</p>
+      <div class="note-box" style="margin-top:28px;">
+        <span class="note-box__icon">ℹ</span>
+        <p class="note-box__text"><strong>No fixed prices are shown.</strong> Final costs depend on scope, measurements, hardware and selected materials. All pricing is confirmed after your consultation and site visit.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BANDS -->
+<section class="bands-section section" aria-labelledby="bands-heading">
+  <div class="container">
+    <h2 class="sr-only" id="bands-heading">Cabinetry finish bands</h2>
+    <div class="band-cards">
+
+      <!-- BAND 1 -->
+      <article class="band-card card reveal" id="band-1">
+        <div class="band-card__img" style="background:linear-gradient(135deg,#3d3028,#2a2018);">
+          <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:24px;">
+            <div style="font-family:var(--ff-display);font-size:1rem;color:var(--c-white-40);letter-spacing:0.1em;text-align:center;line-height:2;">MELAMINE<br/><span style="font-size:0.7rem;letter-spacing:0.2em;color:var(--c-white-40);">VERSATILE · PRACTICAL</span></div>
+          </div>
+        </div>
+        <div class="band-card__content">
+          <div class="band-chip">Band 01 — Melamine</div>
+          <div class="band-card__num">01</div>
+          <h2 class="t-h3" style="margin-bottom:10px;">Melamine-faced boards</h2>
+          <p class="band-card__material">Melamine-faced particleboard or MDF</p>
+          <p class="band-card__desc">A practical, versatile option with a wide range of colours and woodgrain finishes. Ideal for everyday kitchens, rentals and budget-conscious projects that still demand a clean, finished look.</p>
+          <div class="band-card__footer">
+            <div class="band-card__ideal">
+              <strong>Ideal for</strong>
+              Rentals, apartments, functional kitchens
+            </div>
+            <a href="contact.html?service=cabinetry&band=1&details=Requesting%20a%20quotation%20for%20Band%2001%20Melamine%20%26%20Super-Matte%20cabinetry." class="btn btn-outline" style="padding:10px 20px;font-size:0.72rem;" id="band1-quote-btn">Request Quote</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BAND 2 -->
+      <article class="band-card card reveal reveal-delay-1" id="band-2">
+        <div class="band-card__img" style="background:linear-gradient(135deg,#1e2830,#111820);">
+          <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:24px;">
+            <div style="font-family:var(--ff-display);font-size:1rem;color:var(--c-white-40);letter-spacing:0.1em;text-align:center;line-height:2;">GLOSS / UV<br/><span style="font-size:0.7rem;letter-spacing:0.2em;color:var(--c-white-40);">SLEEK · CONTEMPORARY</span></div>
+          </div>
+        </div>
+        <div class="band-card__content">
+          <div class="band-chip">Band 02 — Gloss / UV</div>
+          <div class="band-card__num">02</div>
+          <h2 class="t-h3" style="margin-bottom:10px;">UV glazed &amp; gloss finishes</h2>
+          <p class="band-card__material">UV glazed, high-gloss or equivalent boards</p>
+          <p class="band-card__desc">A sleek contemporary look with reflective or polished surfaces. Subject to selected board availability, this finish delivers a high-impact visual presence with low maintenance.</p>
+          <div class="band-card__footer">
+            <div class="band-card__ideal">
+              <strong>Ideal for</strong>
+              Modern kitchens, feature bathrooms
+            </div>
+            <a href="contact.html?service=cabinetry&band=2&details=Requesting%20a%20quotation%20for%20Band%2002%20Mirror%20High-Gloss%20UV%20Lacquer%20cabinetry." class="btn btn-outline" style="padding:10px 20px;font-size:0.72rem;" id="band2-quote-btn">Request Quote</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BAND 3 -->
+      <article class="band-card card reveal reveal-delay-2" id="band-3">
+        <div class="band-card__img" style="background:linear-gradient(135deg,#2e2820,#201c14);">
+          <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:24px;">
+            <div style="font-family:var(--ff-display);font-size:1rem;color:var(--c-white-40);letter-spacing:0.1em;text-align:center;line-height:2;">SHAKER &amp; FLAT<br/><span style="font-size:0.7rem;letter-spacing:0.2em;color:var(--c-white-40);">CLASSIC · FLEXIBLE</span></div>
+          </div>
+        </div>
+        <div class="band-card__content">
+          <div class="band-chip">Band 03 — Shaker &amp; Flat Panel</div>
+          <div class="band-card__num">03</div>
+          <h2 class="t-h3" style="margin-bottom:10px;">Shaker-style &amp; flat panels</h2>
+          <p class="band-card__material">Shaker-style wood, spray-painted flat panels and PVC wraps</p>
+          <p class="band-card__desc">A flexible style band for classic shaker details or clean flat-front designs. Spray-painted finishes and PVC wraps offer a refined, tailored appearance across a range of colour choices.</p>
+          <div class="band-card__footer">
+            <div class="band-card__ideal">
+              <strong>Ideal for</strong>
+              Classic kitchens, family homes, developer units
+            </div>
+            <a href="contact.html?service=cabinetry&band=3&details=Requesting%20a%20quotation%20for%20Band%2003%20Satin%20Shaker%20%26%20Custom%20Sprayed%20MDF%20cabinetry." class="btn btn-outline" style="padding:10px 20px;font-size:0.72rem;" id="band3-quote-btn">Request Quote</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BAND 4 -->
+      <article class="band-card card reveal" id="band-4">
+        <div class="band-card__img" style="background:linear-gradient(135deg,#28201a,#1e1810);">
+          <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:24px;">
+            <div style="font-family:var(--ff-display);font-size:1rem;color:var(--c-white-40);letter-spacing:0.1em;text-align:center;line-height:2;">RAISED MDF<br/><span style="font-size:0.7rem;letter-spacing:0.2em;color:var(--c-white-40);">DECORATIVE · TAILORED</span></div>
+          </div>
+        </div>
+        <div class="band-card__content">
+          <div class="band-chip">Band 04 — Raised MDF</div>
+          <div class="band-card__num">04</div>
+          <h2 class="t-h3" style="margin-bottom:10px;">MDF raised panels</h2>
+          <p class="band-card__material">MDF raised panels with spray paint</p>
+          <p class="band-card__desc">A more traditional decorative profile with a painted finish and a tailored colour choice. The raised panel detail adds depth and visual interest, suited to formal rooms and statement kitchens.</p>
+          <div class="band-card__footer">
+            <div class="band-card__ideal">
+              <strong>Ideal for</strong>
+              Formal kitchens, dining rooms, statement spaces
+            </div>
+            <a href="contact.html?service=cabinetry&band=4&details=Requesting%20a%20quotation%20for%20Band%2004%20Raised-Panel%20MDF%20Lacquer%20cabinetry." class="btn btn-outline" style="padding:10px 20px;font-size:0.72rem;" id="band4-quote-btn">Request Quote</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BAND 5 -->
+      <article class="band-card card reveal reveal-delay-1" id="band-5">
+        <div class="band-card__img" style="overflow:hidden;">
+          <img src="images/solid-wood.jpg" alt="Solid mvule wood cabinetry grain close-up" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div class="band-card__content">
+          <div class="band-chip" style="border-color:var(--c-gold);color:var(--c-gold);">Band 05 — Solid Wood</div>
+          <div class="band-card__num" style="color:var(--c-gold);">05</div>
+          <h2 class="t-h3" style="margin-bottom:10px;">Mvule, mahogany or Meru oak</h2>
+          <p class="band-card__material">Natural solid timber — selected to specification</p>
+          <p class="band-card__desc">Natural timber character for clients seeking distinctive grain, warmth and a premium solid-wood finish. Each piece is crafted from carefully selected mvule, mahogany or Meru oak to your specification.</p>
+          <div class="band-card__footer">
+            <div class="band-card__ideal">
+              <strong>Ideal for</strong>
+              Premium kitchens, statement wardrobes, heritage homes
+            </div>
+            <a href="contact.html?service=solid-wood&band=5&details=Requesting%20a%20quotation%20for%20Band%2005%20Solid%20East%20African%20Hardwoods%20(Mvule%2C%20Meru%20Oak%2C%20Mahogany)." class="btn btn-primary" style="padding:10px 20px;font-size:0.72rem;" id="band5-quote-btn">Request Quote</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- NOTE -->
+    <div class="note-box reveal" style="margin-top:48px;">
+      <span class="note-box__icon">✦</span>
+      <p class="note-box__text">A <strong>visual finish gallery</strong> with close-up samples, colour options and completed installations for each band will be added to this page. Reach out to discuss your preferred finish — we can share samples during your consultation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WARDROBES & STORAGE SECTION -->
+<section class="section" id="wardrobes" style="background:var(--c-surface);border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border);" aria-labelledby="wardrobes-heading">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px;align-items:center;">
+      <div class="reveal">
+        <div class="eyebrow"><span class="t-label">Custom Closets</span></div>
+        <h2 class="t-h2" id="wardrobes-heading" style="margin-bottom:18px;">Fitted wardrobes &amp; walk-in closets.</h2>
+        <p class="t-body" style="font-size:0.95rem;">From floor-to-ceiling master bedroom walk-ins to space-saving sliding systems and recessed organizers, we design, fabricate and install custom wardrobe solutions tailored to your space, storage needs and lifestyle.</p>
+        <ul style="margin-top:24px;display:flex;flex-direction:column;gap:12px;color:var(--c-white-70);font-size:0.88rem;">
+          <li style="display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--c-gold);flex-shrink:0;">✦</span> Full-height sliding, bi-fold, and soft-close hinged door systems</li>
+          <li style="display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--c-gold);flex-shrink:0;">✦</span> Integrated LED warm-strip lighting with concealed sensors</li>
+          <li style="display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--c-gold);flex-shrink:0;">✦</span> Tailored internal drawers, velvet jewelry trays, trouser racks and shoe galleries</li>
+          <li style="display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--c-gold);flex-shrink:0;">✦</span> Available across all 5 finish bands — Melamine, Gloss/UV, Shaker and Solid Timber</li>
+        </ul>
+        <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="contact.html?service=cabinetry&stage=planning&details=Requesting%20a%20quotation%20for%20bespoke%20fitted%20wardrobes%20and%20walk-in%20dressing%20suites." class="btn btn-primary" id="wardrobes-quote-btn">Request Wardrobe Quote</a>
+          <a href="portfolio.html?filter=cabinetry" class="btn btn-outline" id="wardrobes-portfolio-btn">View Wardrobe Projects</a>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1" style="border-radius:var(--r-lg);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.5);height:440px;border:1px solid var(--c-border-2);">
+        <img src="images/wardrobe.jpg" alt="Luxury bespoke walk-in wardrobe by WDI Design Studio" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLOUR PALETTE PREVIEW -->
+<section class="palette-section" aria-labelledby="palette-heading">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow"><span class="t-label">Sample Colours</span></div>
+      <h2 class="t-h2" id="palette-heading">Popular finish tones.</h2>
+      <p class="t-body">A selection of commonly requested colours across the finish bands. Final colour choice is confirmed during consultation.</p>
+    </div>
+    <div class="palette-grid reveal">
+      <div class="palette-chip" style="background:#f5f0e8;"><span class="palette-chip__name" style="color:#333;">Chalk</span></div>
+      <div class="palette-chip" style="background:#e8e0d5;"><span class="palette-chip__name" style="color:#333;">Linen</span></div>
+      <div class="palette-chip" style="background:#c8bfb0;"><span class="palette-chip__name" style="color:#333;">Putty</span></div>
+      <div class="palette-chip" style="background:#8c8070;"><span class="palette-chip__name">Warm Stone</span></div>
+      <div class="palette-chip" style="background:#504540;"><span class="palette-chip__name">Espresso</span></div>
+      <div class="palette-chip" style="background:#2a2018;"><span class="palette-chip__name">Dark Walnut</span></div>
+      <div class="palette-chip" style="background:#1a2030;"><span class="palette-chip__name">Midnight</span></div>
+      <div class="palette-chip" style="background:#253020;"><span class="palette-chip__name">Forest</span></div>
+      <div class="palette-chip" style="background:#3a3028;"><span class="palette-chip__name">Mocha</span></div>
+      <div class="palette-chip" style="background:#c8a96e;"><span class="palette-chip__name" style="color:#333;">Gold Oak</span></div>
+      <div class="palette-chip" style="background:#8c6030;"><span class="palette-chip__name">Teak</span></div>
+      <div class="palette-chip" style="background:#604028;"><span class="palette-chip__name">Mahogany</span></div>
+    </div>
+    <div style="text-align:center;margin-top:48px;">
+      <a href="contact.html?service=cabinetry&stage=planning&details=Starting%20a%20new%20residential%20cabinetry%20fit-out%20project." class="btn btn-primary" id="cabinetry-cta-btn">Start your cabinetry project</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__brand-name">WDI Design Studio</div>
+        <div class="footer__brand-tag">Cabinetry · Renovations · Interior Fit-Outs</div>
+        <p class="footer__desc">Premium cabinetry and interior fit-outs for homeowners and developers across Kenya.</p>
+      </div>
+      <div>
+        <div class="footer__heading">Navigation</div>
+        <ul class="footer__links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="cabinetry.html">Cabinetry Finishes</a></li>
+          <li><a href="renovations.html">Renovations</a></li>
+          <li><a href="portfolio.html">Our Work</a></li>
+          <li><a href="contact.html">Contact & Quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__heading">Services</div>
+        <ul class="footer__links">
+          <li><a href="cabinetry.html">Custom Cabinetry</a></li>
+          <li><a href="renovations.html">Kitchen Renovations</a></li>
+          <li><a href="renovations.html">Bathroom Renovations</a></li>
+          <li><a href="renovations.html">Tiling & Flooring</a></li>
+          <li><a href="renovations.html">Solid Wood Items</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__heading">Contact</div>
+        <div class="footer__contact-item"><strong>Phone / WhatsApp</strong><a href="https://wa.me/254718923740" style="color:inherit;">0718 923 740</a></div>
+        <div class="footer__contact-item"><strong>Address</strong>Kayaba Lane, Enterprise Road, Industrial Area, Nairobi. P.O. Box 9274 – 00100</div>
+        <div class="footer__contact-item"><strong>Service Area</strong>Nairobi &amp; surrounding areas</div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2025 WDI Design Studio. All rights reserved.</p>
+      <div class="footer__legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

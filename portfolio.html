@@ -1,0 +1,2700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Work — WDI Design Studio Portfolio | Real Kenyan Commissions</title>
+  <meta name="description" content="Explore real completed commissions by WDI Design Studio — custom kitchens, bespoke walk-in wardrobes, bathroom vanities, TV media feature walls, solid timber joinery and on-site video walkthroughs across Nairobi and Kenya." />
+  <meta property="og:title" content="WDI Design Studio — Completed Project Portfolio & Video Tours" />
+  <meta property="og:description" content="Browse authentic projects and video tours delivered across Karen, Runda, Kitisuru, Westlands, Naivasha and beyond." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ═══════════════════════════════════════════════════════════
+       WDI DESIGN STUDIO — PORTFOLIO PAGE LUXURY STYLES
+       ═══════════════════════════════════════════════════════════ */
+
+    .portfolio-hero {
+      position: relative;
+      padding-top: calc(var(--nav-h) + 60px);
+      padding-bottom: 70px;
+      background: radial-gradient(circle at 80% 30%, rgba(200, 169, 110, 0.08) 0%, transparent 60%), #141210;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .portfolio-hero__inner {
+      max-width: 900px;
+    }
+    .portfolio-hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(200, 169, 110, 0.12);
+      border: 1px solid rgba(200, 169, 110, 0.3);
+      border-radius: var(--r-pill);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--c-gold-light);
+      margin-bottom: 20px;
+    }
+
+    /* ─── VIDEO TOURS SHOWCASE ─────────────────────────────── */
+    .video-showcase {
+      background: #11100f;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-block: 70px;
+    }
+    .video-showcase__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .video-card {
+      background: var(--c-surface);
+      border: 1px solid rgba(200, 169, 110, 0.28);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(200, 169, 110, 0.08);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.35s var(--ease-out), border-color 0.35s;
+    }
+    .video-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--c-gold);
+    }
+    .video-player-wrap {
+      position: relative;
+      width: 100%;
+      height: 340px;
+      background: #000;
+      overflow: hidden;
+    }
+    .video-player-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .video-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(14, 13, 12, 0.88);
+      border: 1px solid rgba(200, 169, 110, 0.35);
+      padding: 4px 12px;
+      border-radius: var(--r-pill);
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      backdrop-filter: blur(8px);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 2;
+    }
+    .video-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #e74c3c;
+      animation: recPulse 1.8s infinite;
+    }
+    @keyframes recPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .video-card__content {
+      padding: 26px 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .video-card__title {
+      font-family: var(--ff-display);
+      font-size: 1.5rem;
+      line-height: 1.2;
+      color: var(--c-white);
+      margin-bottom: 6px;
+    }
+    .video-card__sub {
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    .video-card__desc {
+      font-size: 0.84rem;
+      color: var(--c-white-70);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .video-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* ─── FILTER TABS ──────────────────────────────────────── */
+    .filter-bar-sticky {
+      position: sticky;
+      top: var(--nav-h);
+      z-index: 50;
+      background: rgba(14, 13, 12, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-block: 16px;
+    }
+    .portfolio-filters {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 8px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--r-pill);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c-white-70);
+      background: rgba(255, 255, 255, 0.03);
+      cursor: pointer;
+      transition: all 0.25s var(--ease-out);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--c-gold);
+      color: var(--c-gold);
+      background: rgba(200, 169, 110, 0.15);
+      box-shadow: 0 4px 16px rgba(200, 169, 110, 0.15);
+    }
+    .filter-count {
+      font-size: 0.65rem;
+      opacity: 0.6;
+    }
+
+    /* ─── GRID OF PROJECTS ─────────────────────────────────── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 40px;
+    }
+    .pf-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: all 0.35s var(--ease-out);
+      position: relative;
+    }
+    .pf-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(200, 169, 110, 0.4);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 30px rgba(200, 169, 110, 0.08);
+    }
+    .pf-card__media {
+      position: relative;
+      height: 280px;
+      overflow: hidden;
+      background: #111;
+    }
+    .pf-card__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s var(--ease-out);
+    }
+    .pf-card:hover .pf-card__media img {
+      transform: scale(1.06);
+    }
+    .pf-card__badge-row {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+    }
+    .pf-card__category-tag {
+      background: rgba(14, 13, 12, 0.85);
+      border: 1px solid rgba(200, 169, 110, 0.3);
+      padding: 4px 12px;
+      border-radius: var(--r-pill);
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      backdrop-filter: blur(8px);
+    }
+    .pf-card__location-pill {
+      background: rgba(14, 13, 12, 0.75);
+      padding: 4px 10px;
+      border-radius: var(--r-pill);
+      font-size: 0.65rem;
+      color: var(--c-white-70);
+      backdrop-filter: blur(8px);
+    }
+    .pf-card__body {
+      padding: 24px 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .pf-card__title {
+      font-family: var(--ff-display);
+      font-size: 1.45rem;
+      line-height: 1.2;
+      margin-bottom: 6px;
+      color: var(--c-white);
+    }
+    .pf-card__client-sub {
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    .pf-card__desc {
+      font-size: 0.84rem;
+      color: var(--c-white-70);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .pf-card__specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      margin-bottom: 18px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .pf-spec-tag {
+      font-size: 0.68rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      padding: 3px 10px;
+      border-radius: var(--r-pill);
+      color: var(--c-white-70);
+    }
+    .pf-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .pf-card__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      font-weight: 500;
+      transition: gap 0.25s;
+    }
+    .pf-card:hover .pf-card__cta {
+      gap: 10px;
+      color: var(--c-gold-light);
+    }
+
+    /* ─── LIGHTBOX MODAL ───────────────────────────────────── */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(10, 9, 8, 0.95);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .lightbox-modal.active { display: flex; opacity: 1; }
+    .lightbox-content {
+      background: #181513;
+      border: 1px solid rgba(200,169,110,0.3);
+      border-radius: var(--r-lg);
+      max-width: 1020px;
+      width: 100%;
+      max-height: 92vh;
+      overflow-y: auto;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.85), 0 0 50px rgba(200,169,110,0.12);
+      position: relative;
+    }
+    .lightbox-close {
+      position: absolute; top: 14px; right: 14px; z-index: 10;
+      width: 38px; height: 38px; border-radius: 50%;
+      background: rgba(14,13,12,0.88); border: 1px solid rgba(255,255,255,0.15);
+      color: var(--c-white); font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .lightbox-close:hover { background: var(--c-gold); color: #0e0d0c; }
+
+    /* ── Main viewer ── */
+    .lightbox-main-viewer {
+      width: 100%; height: 440px; background: #0a0908;
+      border-top-left-radius: var(--r-lg); border-top-right-radius: var(--r-lg);
+      position: relative; overflow: hidden;
+    }
+    .lightbox-main-viewer img,
+    .lightbox-main-viewer video {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: opacity 0.25s;
+    }
+    .lb-nav-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      z-index: 5; width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(14,13,12,0.8); border: 1px solid rgba(200,169,110,0.3);
+      color: var(--c-gold); font-size: 1.2rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .lb-nav-btn:hover { background: var(--c-gold); color: #0e0d0c; }
+    .lb-nav-prev { left: 12px; }
+    .lb-nav-next { right: 12px; }
+
+    /* ── Thumbnail strip ── */
+    .lightbox-thumb-strip {
+      display: flex; gap: 8px; padding: 10px 12px;
+      background: #100f0e; border-bottom: 1px solid rgba(255,255,255,0.07);
+      overflow-x: auto;
+    }
+    .lb-thumb {
+      flex-shrink: 0; width: 80px; height: 56px;
+      border-radius: 6px; overflow: hidden;
+      border: 2px solid transparent; cursor: pointer;
+      transition: border-color 0.2s; position: relative;
+    }
+    .lb-thumb.active { border-color: var(--c-gold); }
+    .lb-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .lb-thumb-video {
+      width: 100%; height: 100%; background: #1a1816;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; color: var(--c-gold);
+    }
+    .lb-thumb-video-label {
+      position: absolute; bottom: 2px; left: 0; right: 0;
+      text-align: center; font-size: 0.52rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--c-gold); opacity: 0.85;
+    }
+
+    /* ── Body ── */
+    .lightbox-body { padding: 28px 28px 32px; }
+    .lightbox-category {
+      font-size: 0.68rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--c-gold); margin-bottom: 8px;
+    }
+    .lightbox-title {
+      font-family: var(--ff-display); font-size: 2rem;
+      margin-bottom: 10px; line-height: 1.15;
+    }
+    .lightbox-location { font-size: 0.85rem; color: var(--c-white-70); margin-bottom: 18px; }
+    .lightbox-desc { font-size: 0.92rem; color: var(--c-white-70); line-height: 1.75; margin-bottom: 24px; }
+    .lightbox-spec-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 14px; background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 18px; border-radius: var(--r-md); margin-bottom: 28px;
+    }
+    .lightbox-spec-item strong {
+      display: block; font-size: 0.63rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--c-gold); margin-bottom: 4px;
+    }
+    .lightbox-spec-item span { font-size: 0.86rem; color: var(--c-white); }
+
+    /* ─── FEATURED SHOWCASE ────────────────────────────────── */
+    .featured-spotlight {
+      background: #141210;
+      border-block: 1px solid rgba(200, 169, 110, 0.25);
+      padding-block: var(--section-pad);
+    }
+    .featured-spotlight__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .featured-spotlight__img {
+      height: 520px;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 1px solid rgba(200, 169, 110, 0.3);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    }
+    .featured-spotlight__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       RESPONSIVE DESIGN SYSTEM — ALL SCREEN SIZES
+       ═══════════════════════════════════════════════════════════ */
+
+    /* ─── 1. ULTRA-WIDE & 4K SCREENS (>= 1600px) ─────────────── */
+    @media (min-width: 1600px) {
+      .container {
+        max-width: 1680px;
+      }
+      .portfolio-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+      }
+      .portfolio-hero {
+        padding-top: calc(var(--nav-h) + 80px);
+        padding-bottom: 90px;
+      }
+      .portfolio-hero h1 {
+        font-size: clamp(3.6rem, 4.5vw, 5.2rem);
+      }
+      .lightbox-content {
+        max-width: 1200px;
+      }
+      .lightbox-main-viewer {
+        height: 520px;
+      }
+      .featured-spotlight__img {
+        height: 580px;
+      }
+    }
+
+    /* ─── 2. LARGE SCREENS (1280px - 1599px) ─────────────────── */
+    @media (min-width: 1280px) and (max-width: 1599px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+      .lightbox-content {
+        max-width: 1080px;
+      }
+      .lightbox-main-viewer {
+        height: 480px;
+      }
+    }
+
+    /* ─── 3. LAPTOPS & COMPACT DESKTOPS (1025px - 1279px) ─────── */
+    @media (min-width: 1025px) and (max-width: 1279px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      .video-grid {
+        gap: 24px;
+      }
+      .featured-spotlight__grid {
+        gap: 40px;
+      }
+      .featured-spotlight__img {
+        height: 440px;
+      }
+    }
+
+    /* ─── 4. TABLETS & NETBOOKS (769px - 1024px) ─────────────── */
+    @media (max-width: 1024px) {
+      .portfolio-hero {
+        padding-top: calc(var(--nav-h) + 40px);
+        padding-bottom: 50px;
+      }
+      .video-showcase {
+        padding-block: 50px;
+      }
+      .video-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .video-player-wrap {
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+      .featured-spotlight__grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .featured-spotlight__img {
+        height: 380px;
+      }
+      .lightbox-content {
+        max-width: 92vw;
+      }
+      .lightbox-main-viewer {
+        height: clamp(340px, 45vh, 440px);
+      }
+    }
+
+    /* ─── 5. MOBILE SCREENS (<= 768px) ────────────────────────── */
+    @media (max-width: 768px) {
+      .portfolio-hero {
+        padding-top: calc(var(--nav-h) + 24px);
+        padding-bottom: 40px;
+      }
+      .portfolio-hero__badge {
+        font-size: 0.62rem;
+        padding: 4px 12px;
+        margin-bottom: 14px;
+      }
+      .portfolio-hero h1 {
+        font-size: clamp(2.1rem, 7.5vw, 3rem) !important;
+        margin-bottom: 12px !important;
+        line-height: 1.15 !important;
+      }
+      .portfolio-hero p.t-body {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      /* Sticky filter bar: smooth touch-scrollable pill carousel */
+      .filter-bar-sticky {
+        padding-block: 10px;
+        position: sticky;
+        top: var(--nav-h);
+      }
+      .portfolio-filters {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+        padding-bottom: 4px;
+        margin-inline: calc(var(--gutter) * -1);
+        padding-inline: var(--gutter);
+      }
+      .portfolio-filters::-webkit-scrollbar {
+        display: none;
+      }
+      .filter-btn {
+        flex-shrink: 0;
+        white-space: nowrap;
+        padding: 8px 14px;
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+      }
+
+      /* Video tours on mobile */
+      .video-showcase {
+        padding-block: 40px;
+      }
+      .video-showcase__header {
+        margin-bottom: 24px;
+        gap: 12px;
+      }
+      .video-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .video-player-wrap {
+        height: auto;
+        aspect-ratio: 16 / 9;
+        min-height: 200px;
+      }
+      .video-card__content {
+        padding: 20px 18px;
+      }
+      .video-card__title {
+        font-size: 1.3rem;
+      }
+      .video-card__desc {
+        font-size: 0.82rem;
+        margin-bottom: 14px;
+      }
+      .video-card__footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .video-card__footer .pf-card__cta {
+        align-self: flex-start;
+      }
+
+      /* Portfolio grid on mobile */
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        margin-top: 24px;
+      }
+      .pf-card__media {
+        height: 240px;
+      }
+      .pf-card__body {
+        padding: 20px 18px;
+      }
+      .pf-card__title {
+        font-size: 1.3rem;
+      }
+      .pf-card__desc {
+        font-size: 0.82rem;
+        margin-bottom: 14px;
+      }
+      .pf-card__specs {
+        margin-bottom: 14px;
+        gap: 5px;
+      }
+      .pf-spec-tag {
+        font-size: 0.64rem;
+        padding: 3px 8px;
+      }
+
+      /* Featured spotlight on mobile */
+      .featured-spotlight {
+        padding-block: 50px;
+      }
+      .featured-spotlight__grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .featured-spotlight__img {
+        height: clamp(240px, 45vh, 320px);
+      }
+      .featured-spotlight .lightbox-spec-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 14px;
+      }
+      .featured-spotlight div[style*="display:flex"] {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px !important;
+      }
+      .featured-spotlight .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* Lightbox modal on mobile */
+      .lightbox-modal {
+        padding: 8px;
+      }
+      .lightbox-content {
+        max-height: 94vh;
+        border-radius: var(--r-md);
+      }
+      .lightbox-close {
+        top: 10px;
+        right: 10px;
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+      }
+      .lightbox-main-viewer {
+        height: clamp(220px, 35vh, 300px);
+        border-top-left-radius: var(--r-md);
+        border-top-right-radius: var(--r-md);
+      }
+      .lb-nav-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+      }
+      .lb-nav-prev { left: 8px; }
+      .lb-nav-next { right: 8px; }
+      .lightbox-thumb-strip {
+        gap: 6px;
+        padding: 8px 10px;
+      }
+      .lb-thumb {
+        width: 60px;
+        height: 42px;
+      }
+      .lightbox-body {
+        padding: 18px 16px 24px;
+      }
+      .lightbox-title {
+        font-size: clamp(1.3rem, 5vw, 1.65rem);
+        margin-bottom: 8px;
+      }
+      .lightbox-location {
+        font-size: 0.78rem;
+        margin-bottom: 12px;
+      }
+      .lightbox-desc {
+        font-size: 0.82rem;
+        line-height: 1.6;
+        margin-bottom: 18px;
+      }
+      .lightbox-spec-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 12px;
+        margin-bottom: 20px;
+      }
+      .lightbox-body div[style*="display:flex"] {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px !important;
+      }
+      .lightbox-body .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* ─── 6. EXTRA SMALL MOBILE PHONES (<= 420px) ─────────────── */
+    @media (max-width: 420px) {
+      .portfolio-hero h1 {
+        font-size: 1.95rem !important;
+      }
+      .video-card__title,
+      .pf-card__title {
+        font-size: 1.2rem;
+      }
+      .pf-card__media {
+        height: 200px;
+      }
+      .video-player-wrap {
+        min-height: 170px;
+      }
+      .pf-card__badge-row {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+      }
+      .pf-card__category-tag,
+      .pf-card__location-pill {
+        font-size: 0.58rem;
+        padding: 3px 8px;
+      }
+      .pf-card__cta {
+        font-size: 0.68rem;
+      }
+      .btn {
+        padding: 14px 20px;
+        font-size: 0.72rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="WDI Design Studio home">
+      <span class="nav__logo-mark">WDI</span>
+      <span class="nav__logo-sub">Design Studio · Nairobi</span>
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="index.html" class="nav__link" id="nav-home">Home</a></li>
+      <li class="nav__dropdown" id="nav-services-dropdown">
+        <button class="nav__dropdown-toggle" id="nav-products-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Products and services menu">
+          Bespoke Services
+          <svg class="nav__chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg>
+        </button>
+        <div class="nav__dropdown-panel" role="menu" aria-label="Products and services">
+          <div class="nav__cat-list" role="tablist">
+            <div class="nav__cat-item active" data-target="cat-kitchen" role="tab" tabindex="0"><span>Gourmet Kitchens</span><svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l4 4-4 4"/></svg></div>
+            <div class="nav__cat-item" data-target="cat-wardrobes" role="tab" tabindex="0"><span>Bespoke Wardrobes</span><svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l4 4-4 4"/></svg></div>
+            <div class="nav__cat-item" data-target="cat-bathrooms" role="tab" tabindex="0"><span>Bathroom Vanities</span><svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l4 4-4 4"/></svg></div>
+            <div class="nav__cat-item" data-target="cat-storage" role="tab" tabindex="0"><span>TV &amp; Media Units</span><svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l4 4-4 4"/></svg></div>
+            <div class="nav__cat-item" data-target="cat-wholehouse" role="tab" tabindex="0"><span>Turnkey Renovations</span><svg class="nav__cat-arrow" viewBox="0 0 6 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l4 4-4 4"/></svg></div>
+          </div>
+          <div class="nav__sub-content">
+            <div class="nav__sub-panel active" id="cat-kitchen">
+              <a href="cabinetry.html#band-5" class="nav__sub-item"><div class="nav__sub-title">Solid Wood Kitchens <span>→</span></div><div class="nav__sub-detail">Band 05 · Natural Mvule, Mahogany and Meru Oak to specification.</div></a>
+              <a href="cabinetry.html#band-3" class="nav__sub-item"><div class="nav__sub-title">Shaker &amp; Sprayed MDF <span>→</span></div><div class="nav__sub-detail">Band 03 · Classic recessed rail with multi-coat polyurethane finish.</div></a>
+              <a href="cabinetry.html#band-1" class="nav__sub-item"><div class="nav__sub-title">Modern UV Gloss &amp; Matte <span>→</span></div><div class="nav__sub-detail">Band 01 &amp; 02 · Seamless edges and German Blum hardware.</div></a>
+              <div class="nav__sub-footer"><a href="cabinetry.html" class="nav__sub-footer-btn">Explore Finishes →</a></div>
+            </div>
+            <div class="nav__sub-panel" id="cat-wardrobes">
+              <a href="cabinetry.html#wardrobes" class="nav__sub-item"><div class="nav__sub-title">Walk-In Closets <span>→</span></div><div class="nav__sub-detail">Illuminated boutique walk-in dressing suites with vanity tables.</div></a>
+              <div class="nav__sub-footer"><a href="cabinetry.html#wardrobes" class="nav__sub-footer-btn">Wardrobe Specs →</a></div>
+            </div>
+            <div class="nav__sub-panel" id="cat-bathrooms">
+              <a href="renovations.html#reno-bathroom" class="nav__sub-item"><div class="nav__sub-title">Floating Vanities <span>→</span></div><div class="nav__sub-detail">Moisture-resistant quartz basins and drawer consoles.</div></a>
+              <div class="nav__sub-footer"><a href="renovations.html#reno-bathroom" class="nav__sub-footer-btn">See Bathrooms →</a></div>
+            </div>
+            <div class="nav__sub-panel" id="cat-storage">
+              <a href="portfolio.html?filter=cabinetry" class="nav__sub-item"><div class="nav__sub-title">Acoustic Media Walls <span>→</span></div><div class="nav__sub-detail">Fluted wood slats with integrated floating marble shelves.</div></a>
+            </div>
+            <div class="nav__sub-panel" id="cat-wholehouse">
+              <a href="renovations.html" class="nav__sub-item"><div class="nav__sub-title">Turnkey Renovations <span>→</span></div><div class="nav__sub-detail">Demolition to white-glove handover.</div></a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li><a href="portfolio.html" class="nav__link active" id="nav-portfolio">Portfolio</a></li>
+      <li><a href="contact.html" class="nav__link nav__cta" id="nav-contact">Book Consultation</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="nav__mobile" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="cabinetry.html">Cabinetry &amp; Finish Bands</a>
+  <a href="renovations.html">Renovations &amp; Fit-Outs</a>
+  <a href="portfolio.html" class="active">Our Portfolio</a>
+  <a href="contact.html">Request a Quote</a>
+  <div style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);">
+    <a href="https://wa.me/254718923740" class="btn btn-whatsapp-hero" style="justify-content:center;display:flex;">
+      WhatsApp Direct: 0718 923 740
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PORTFOLIO HERO
+     ═══════════════════════════════════════════════════════════ -->
+<section class="portfolio-hero" aria-label="Portfolio Introduction">
+  <div class="container">
+    <div class="portfolio-hero__inner">
+      <div class="portfolio-hero__badge">
+        <span>✦ Real Completed Commissions · Kenya</span>
+      </div>
+      <h1 class="t-hero" style="font-size:clamp(2.6rem, 5vw, 4.8rem);margin-bottom:18px;">
+        Craftsmanship in situ.
+      </h1>
+      <p class="t-body" style="font-size:1.1rem;max-width:680px;">
+        Every commission in this portfolio represents authentic craftsmanship fabricated in our Nairobi workshop and installed on-site for private residences, luxury apartments, and commercial projects across Kenya.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     ON-SITE VIDEO WALKTHROUGHS SECTION (NEW!)
+     ═══════════════════════════════════════════════════════════ -->
+<section class="video-showcase" id="video-walkthroughs" aria-labelledby="video-heading">
+  <div class="container">
+    <div class="video-showcase__header">
+      <div>
+        <div class="eyebrow" style="display:flex;align-items:center;gap:14px;margin-bottom:12px;">
+          <span style="display:block;width:36px;height:1px;background:var(--c-gold)"></span>
+          <span class="t-label">On-Site Handover Tours</span>
+        </div>
+        <h2 class="t-h2" id="video-heading">Watch our joinery in motion.</h2>
+      </div>
+      <p class="t-body" style="max-width:440px;">
+        Experience the precision movement of German Blum runners, custom soft-close doors, and tactile finishes captured live on completed sites.
+      </p>
+    </div>
+
+    <div class="video-grid">
+
+      <!-- VIDEO 01: ALI WESTLANDS PROJECT — REAL ON-SITE VIDEO -->
+      <div class="video-card">
+        <div class="video-player-wrap">
+          <span class="video-badge">
+            <span class="video-badge-dot"></span>
+            On-Site Video · Westlands
+          </span>
+          <video controls preload="metadata" playsinline poster="images/projects/ali-westlands-project/photo-1.jpg">
+            <source src="images/projects/videos/ali-westlands-walkthrough.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-card__content">
+          <span class="video-card__sub">Ali Commission · Westlands, Nairobi</span>
+          <h3 class="video-card__title">UV High-Gloss Kitchen — Site Walkthrough</h3>
+          <p class="video-card__desc">
+            On-site video captured at handover, showcasing the completed champagne UV gloss cabinetry, seamless handleless J-pull profiles, integrated appliance recesses, and marble-effect worktops.
+          </p>
+          <div class="video-card__footer">
+            <span class="pf-spec-tag">Band 02 UV High-Gloss · Appliance Integration</span>
+            <a href="contact.html?service=cabinetry&band=2&project=Ali%20Westlands" class="pf-card__cta">Inquire About This Build →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEO 02: BELLA RESIDENCE - KAREN BOGANI — REAL ON-SITE VIDEO -->
+      <div class="video-card">
+        <div class="video-player-wrap">
+          <span class="video-badge">
+            <span class="video-badge-dot"></span>
+            On-Site Video · Karen
+          </span>
+          <video controls preload="metadata" playsinline poster="images/projects/bella-karen-bogani-road/photo-1.jpg">
+            <source src="images/projects/videos/bella-karen-wardrobes-walkthrough.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-card__content">
+          <span class="video-card__sub">Bella Commission · Bogani Road, Karen</span>
+          <h3 class="video-card__title">Master Wardrobe — On-Site Handover Tour</h3>
+          <p class="video-card__desc">
+            On-site video showing the completed two-tone wardrobe joinery in motion — ceiling-height sliding tracks, internal organizer draws, and soft-closing shoe cabinets filmed at client handover.
+          </p>
+          <div class="video-card__footer">
+            <span class="pf-spec-tag">Two-Tone Finish · Sliding Track System</span>
+            <a href="contact.html?service=cabinetry&band=3&project=Bella%20Residence%20Karen" class="pf-card__cta">Inquire About This Build →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEO 03: KERARAPON DRIVE KAREN — PHOTO SHOWCASE -->
+      <div class="video-card">
+        <div class="video-player-wrap">
+          <span class="video-badge" style="background:rgba(14,13,12,0.85);border-color:rgba(200,169,110,0.4);color:var(--c-gold);">
+            ✦ Completed Project
+          </span>
+          <img src="images/projects/kerarapon-drive-karen/photo-1.jpg" alt="Kerarapon Drive Karen kitchen project" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        </div>
+        <div class="video-card__content">
+          <span class="video-card__sub">Kerarapon Drive Commission · Karen</span>
+          <h3 class="video-card__title">White Shaker &amp; Quartz Kitchen</h3>
+          <p class="video-card__desc">
+            Raised profile satin white shaker cabinetry with Calacatta quartz waterfall edge, undermount double basin, gooseneck spray mixer, and illuminated glass vitrine.
+          </p>
+          <div class="video-card__footer">
+            <span class="pf-spec-tag">Band 03 Shaker · Calacatta Quartz</span>
+            <a href="contact.html?service=cabinetry&band=3&project=Kerarapon%20Drive%20Karen" class="pf-card__cta">Inquire About This Build →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEO 04: RUNDA MIMOSA — PHOTO SHOWCASE -->
+      <div class="video-card">
+        <div class="video-player-wrap">
+          <span class="video-badge" style="background:rgba(14,13,12,0.85);border-color:rgba(200,169,110,0.4);color:var(--c-gold);">
+            ✦ Completed Project
+          </span>
+          <img src="images/projects/runda-mimosa-project/photo-1.jpg" alt="Runda Mimosa luxury villa joinery" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        </div>
+        <div class="video-card__content">
+          <span class="video-card__sub">Runda Mimosa Estate Commission</span>
+          <h3 class="video-card__title">Executive Villa Multi-Room Millwork</h3>
+          <p class="video-card__desc">
+            Comprehensive estate-wide millwork fit-out spanning the main gourmet kitchen, poolside terrace bar joinery, and private master dressing suites in Runda.
+          </p>
+          <div class="video-card__footer">
+            <span class="pf-spec-tag">Whole House · Poolside Bar · Suites</span>
+            <a href="contact.html?service=cabinetry&band=2&project=Runda%20Mimosa%20Estate" class="pf-card__cta">Inquire About This Build →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FILTER BAR (STICKY)
+     ═══════════════════════════════════════════════════════════ -->
+<div class="filter-bar-sticky">
+  <div class="container">
+    <div class="portfolio-filters" role="group" aria-label="Filter by project category">
+      <button class="filter-btn active" data-filter="all">All Projects <span class="filter-count">(46)</span></button>
+      <button class="filter-btn" data-filter="video">Video Tours <span class="filter-count">(4)</span></button>
+      <button class="filter-btn" data-filter="kitchens">Gourmet Kitchens <span class="filter-count">(9)</span></button>
+      <button class="filter-btn" data-filter="wardrobes">Walk-In Closets <span class="filter-count">(5)</span></button>
+      <button class="filter-btn" data-filter="bathrooms">Bathroom Vanities <span class="filter-count">(3)</span></button>
+      <button class="filter-btn" data-filter="cabinetry">Media Walls &amp; Living <span class="filter-count">(4)</span></button>
+      <button class="filter-btn" data-filter="solid-wood">Solid Wood Pieces <span class="filter-count">(3)</span></button>
+      <button class="filter-btn" data-filter="commercial">Commercial &amp; Offices <span class="filter-count">(2)</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MAIN PORTFOLIO GRID (AUTHENTIC COMMISSIONS)
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--c-bg);" aria-label="Project Gallery">
+  <div class="container">
+
+    <div class="portfolio-grid" id="portfolio-grid">
+
+      <!-- 01: HUSSEIN & ANISSA KITCHEN - KITISURU -->
+      <article class="pf-card" data-cat="kitchens"
+        data-title="Hussein &amp; Anissa Residence Kitchen"
+        data-location="Kitisuru Villas, Nairobi"
+        data-cat-label="Gourmet Kitchen"
+        data-band="Band 03 &amp; 04 (Raised Shaker White &amp; Calacatta Quartz)"
+        data-scope="Turnkey kitchen installation, waterfall quartz island with breakfast bar, mosaic splashback, built-in refrigerator and oven housing cabinetry."
+        data-image="images/projects/kitisuru-villas-hussein-anissa-kitchen/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Gourmet Kitchen</span>
+            <span class="pf-card__location-pill">Kitisuru Villas</span>
+          </div>
+          <img src="images/projects/kitisuru-villas-hussein-and-anissa-kitchen/photo-1.jpg" alt="Hussein & Anissa Kitchen Installation in Kitisuru Villas" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Hussein &amp; Anissa Commission</span>
+          <h3 class="pf-card__title">Kitisuru Villa Island Kitchen</h3>
+          <p class="pf-card__desc">
+            Full bespoke kitchen with raised profile satin white cabinetry, a dramatic waterfall quartz island with integrated breakfast seating, and mosaic tile splashback.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Band 03 Raised Shaker</span>
+            <span class="pf-spec-tag">Quartz Island</span>
+            <span class="pf-spec-tag">Blum® Soft-Close</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02: MUSHROOM ESTATE RESIDENCE KITCHEN (NEW!) -->
+      <article class="pf-card" data-cat="kitchens"
+        data-title="Mushroom Estate Luxury Shaker Kitchen"
+        data-location="Mushroom Estate, Kiambu Road, Nairobi"
+        data-cat-label="Gourmet Kitchen"
+        data-band="Band 03 &amp; 04 (Raised Shaker White &amp; Calacatta Quartz)"
+        data-scope="Off-white raised shaker cabinetry with matte black designer pull handles, built-in Bosch double eye-level ovens, illuminated glass vitrines, and cove ceiling downlighting."
+        data-image="images/projects/mushroom-estate/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Gourmet Kitchen</span>
+            <span class="pf-card__location-pill">Mushroom Estate</span>
+          </div>
+          <img src="images/projects/mushroom-estate/photo-1.jpg" alt="Mushroom Estate luxury kitchen with Bosch appliances and illuminated vitrines" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Mushroom Estate Commission</span>
+          <h3 class="pf-card__title">Mushroom Estate Shaker Kitchen</h3>
+          <p class="pf-card__desc">
+            Pristine off-white raised shaker kitchen featuring matte black architectural handles, integrated double Bosch wall ovens, glass-fronted vitrines, and quartz surfaces.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Band 03 Shaker</span>
+            <span class="pf-spec-tag">Double Bosch Ovens</span>
+            <span class="pf-spec-tag">Glass Vitrine</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03: SIDDY RESIDENCE TIGONI FLOATING OAK DOUBLE VANITY (NEW!) -->
+      <article class="pf-card" data-cat="bathrooms"
+        data-title="Siddy Residence Floating Oak Double Vanity"
+        data-location="Tigoni, Limuru"
+        data-cat-label="Bathroom Vanity"
+        data-band="Band 01 &amp; Stone (Textured Oak &amp; White Stone Top)"
+        data-scope="Monolithic wall-hung floating oak vanity console featuring 7 soft-close drawers, lower open towel storage shelf, twin white ceramic vessel basins, and white stone countertop."
+        data-image="images/projects/siddy-tigoni/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Bathroom Vanity</span>
+            <span class="pf-card__location-pill">Tigoni, Limuru</span>
+          </div>
+          <img src="images/projects/siddy-tigoni/photo-1.jpg" alt="Siddy Tigoni floating oak double basin vanity unit" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Siddy Commission · Tigoni</span>
+          <h3 class="pf-card__title">Floating Oak Double Basin Vanity</h3>
+          <p class="pf-card__desc">
+            Expansive 7-drawer wall-hung oak console with open lower linen shelf, engineered white stone top, and dual vessel sinks designed for a luxury master bathroom.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">7 Soft-Close Drawers</span>
+            <span class="pf-spec-tag">Twin Vessel Sinks</span>
+            <span class="pf-spec-tag">Moisture-Resistant</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04: VIDEO CARD: KERARAPON DRIVE KAREN (IN GRID) -->
+      <article class="pf-card" data-cat="kitchens video"
+        data-title="Kerarapon Drive Kitchen Walkthrough Tour"
+        data-location="Kerarapon Drive, Karen, Nairobi"
+        data-cat-label="Video Walkthrough"
+        data-band="Band 03 &amp; 04 (Raised White Shaker &amp; Calacatta Quartz)"
+        data-scope="On-site video walkthrough showcasing raised shaker cabinetry, Calacatta quartz waterfall edge, gooseneck spray mixer, gas hob, and Blum runner alignment."
+        data-image="images/projects/kerarapon-drive-karen/photo-1.jpg"
+        data-video="images/projects/videos/kerarapon-karen-kitchen-walkthrough.mp4">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag" style="border-color:#e74c3c;color:#ff8787;">▶ Video Tour</span>
+            <span class="pf-card__location-pill">Karen</span>
+          </div>
+          <img src="images/projects/kerarapon-drive-karen/photo-1.jpg" alt="Kerarapon Drive Karen kitchen video tour" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Kerarapon Video Walkthrough</span>
+          <h3 class="pf-card__title">Karen Kitchen Video Tour</h3>
+          <p class="pf-card__desc">
+            Experience the completed kitchen in motion — inspect smooth quartz edge transitions, soft-close pan drawers, and illuminated glass wall vitrines.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Watch Walkthrough</span>
+            <span class="pf-spec-tag">Calacatta Quartz</span>
+            <span class="pf-spec-tag">Blum® Motion</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta" style="color:var(--c-gold-light);">▶ Play Video Walkthrough →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05: VIDEO CARD: BELLA RESIDENCE KAREN WARDROBES (IN GRID) -->
+      <article class="pf-card" data-cat="wardrobes video"
+        data-title="Bella Residence Wardrobes Walkthrough Tour"
+        data-location="Bogani Road, Karen, Nairobi"
+        data-cat-label="Video Walkthrough"
+        data-band="Band 01 &amp; 02 (Charcoal Matte &amp; Woodgrain Melamine)"
+        data-scope="On-site video tour demonstrating full-height sliding door wardrobes, smooth ceiling aluminium tracks, internal organizer drawers, and shoe racks."
+        data-image="images/projects/bella-karen-bogani-road/photo-1.jpg"
+        data-video="images/projects/videos/bella-karen-wardrobes-walkthrough.mp4">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag" style="border-color:#e74c3c;color:#ff8787;">▶ Video Tour</span>
+            <span class="pf-card__location-pill">Bogani Rd, Karen</span>
+          </div>
+          <img src="images/projects/bella-karen-bogani-road/photo-1.jpg" alt="Bella Residence fitted wardrobes video tour" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Bella Video Walkthrough</span>
+          <h3 class="pf-card__title">Karen Closets Video Tour</h3>
+          <p class="pf-card__desc">
+            Watch the sliding closet running gear in action, showing two-tone charcoal and timber linings with integrated lower storage drawers.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Watch Walkthrough</span>
+            <span class="pf-spec-tag">Sliding Track System</span>
+            <span class="pf-spec-tag">Internal Organizers</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta" style="color:var(--c-gold-light);">▶ Play Video Walkthrough →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 06: FIONA DRESSING SUITE - GITANGA ROAD NORTHCOTE -->
+      <article class="pf-card" data-cat="wardrobes"
+        data-title="Fiona Master Dressing Room &amp; Vanity"
+        data-location="Northcote Apartments, Gitanga Road, Lavington"
+        data-cat-label="Walk-In Closet"
+        data-band="Band 03 (Sprayed Satin White MDF &amp; Crystal Knobs)"
+        data-scope="Floor-to-ceiling walk-in dressing suite, custom Hollywood vanity mirror with integrated makeup lighting, multi-tier hanging bays, drawer stacks, and accessory organizers."
+        data-image="images/projects/fiona-gitanga-road-nothecorte-aparments/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Dressing Suite</span>
+            <span class="pf-card__location-pill">Gitanga Road, Lavington</span>
+          </div>
+          <img src="images/projects/fiona-gitanga-road-nothecorte-aparments/photo-1.jpg" alt="Walk-in closet and dressing room at Northcote Apartments by WDI Design Studio" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Fiona Project · Northcote</span>
+          <h3 class="pf-card__title">Master Walk-In Dressing Suite</h3>
+          <p class="pf-card__desc">
+            Custom floor-to-ceiling open wardrobe architecture featuring an integrated Hollywood vanity mirror, crystal drawer pulls, and designated shoe display tiers.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Band 03 Sprayed Satin</span>
+            <span class="pf-spec-tag">Illuminated Vanity</span>
+            <span class="pf-spec-tag">Full-Height Fit</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 07: ALI HIGH-GLOSS KITCHEN - WESTLANDS -->
+      <article class="pf-card" data-cat="kitchens"
+        data-title="Ali Modern High-Gloss Kitchen"
+        data-location="Westlands, Nairobi"
+        data-cat-label="Modern Kitchen"
+        data-band="Band 02 (European UV High-Gloss Lacquer in Champagne)"
+        data-scope="Sleek minimalist kitchen cabinetry, seamless PUR edge-banding, white subway tile splashback, under-counter washing machine integration, matte black composite sink, and angled range hood."
+        data-image="images/projects/ali-westlands-project/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Modern Kitchen</span>
+            <span class="pf-card__location-pill">Westlands</span>
+          </div>
+          <img src="images/projects/ali-westlands-project/photo-1.jpg" alt="Ali Modern High-Gloss Kitchen in Westlands" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Ali Commission · Westlands</span>
+          <h3 class="pf-card__title">European UV High-Gloss Kitchen</h3>
+          <p class="pf-card__desc">
+            Ultra-modern champagne gloss cabinetry with handleless J-pull profiles, marble-veined worktops, integrated appliance housing, and subway tile backsplash.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Band 02 UV High-Gloss</span>
+            <span class="pf-spec-tag">Appliance Integration</span>
+            <span class="pf-spec-tag">Granite Sink</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 08: CAROLINE KINOTI - KIAMBU ROAD SOLID TIMBER KITCHEN -->
+      <article class="pf-card" data-cat="solid-wood"
+        data-title="Caroline Kinoti Solid Wood Kitchen"
+        data-location="Kiambu Road, Nairobi"
+        data-cat-label="Solid Wood Kitchen"
+        data-band="Band 05 (Kiln-Dried Hardwood &amp; Polished Granite)"
+        data-scope="Handcrafted natural solid timber cabinetry, raised bolection profile doors, traditional plate rack, glass vitrine wall unit, granite countertops, and black undermount sink."
+        data-image="images/projects/caroline-kinoti-kiambu-road-project/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Solid Wood</span>
+            <span class="pf-card__location-pill">Kiambu Road</span>
+          </div>
+          <img src="images/projects/caroline-kinoti-kiambu-road-project/photo-1.jpg" alt="Solid timber kitchen by Caroline Kinoti project Kiambu Road" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Caroline Kinoti Commission</span>
+          <h3 class="pf-card__title">Solid East African Hardwood Kitchen</h3>
+          <p class="pf-card__desc">
+            Heritage rustic timber cabinetry with handcrafted joinery details, plate-drying display, glass-fronted dish vitrine, and durable polished granite surfaces.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Band 05 Natural Hardwood</span>
+            <span class="pf-spec-tag">Solid Granite</span>
+            <span class="pf-spec-tag">Artisan Joinery</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 09: CALTON GARDENS HSE 3 - FLUTED TV MEDIA WALL -->
+      <article class="pf-card" data-cat="cabinetry"
+        data-title="Calton Gardens Living Media Suite"
+        data-location="Calton Gardens Estate, Kiambu (HSE 3)"
+        data-cat-label="Media Feature Wall"
+        data-band="Band 04 &amp; 01 (Fluted Natural Oak &amp; Super-Matte Grey)"
+        data-scope="Architectural living room entertainment center, acoustic vertical timber slat feature panel, floating lower credenza with push-to-open doors, open shelving, and integrated study desk."
+        data-image="images/projects/calton-gardens-hse-3-kiambu/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">TV Media Wall</span>
+            <span class="pf-card__location-pill">Calton Gardens, Kiambu</span>
+          </div>
+          <img src="images/projects/calton-gardens-hse-3-kiambu/photo-1.jpg" alt="Calton Gardens TV Media Wall with Fluted Oak and Credenza" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Calton Gardens HSE 3</span>
+          <h3 class="pf-card__title">Fluted Oak TV Feature Suite</h3>
+          <p class="pf-card__desc">
+            Custom living room focal wall with vertical fluted oak acoustic paneling, floating minimalist media credenza, and seamless study workspace integration.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Band 04 Fluted Slats</span>
+            <span class="pf-spec-tag">Concealed Wiring</span>
+            <span class="pf-spec-tag">Integrated Desk</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10: VANITIES KAREN - QUARTZ DOUBLE BASIN SUITE -->
+      <article class="pf-card" data-cat="bathrooms"
+        data-title="Karen Floating Quartz Vanity Suite"
+        data-location="Private Residence, Karen, Nairobi"
+        data-cat-label="Bathroom Vanity"
+        data-band="Band 01 &amp; Engineered Quartz (Seamless Basin &amp; Walnut Console)"
+        data-scope="Custom wall-hung floating bathroom vanity, integrated ramp-drain quartz double trough sink, concealed wall-mount chrome faucets, and lower walnut soft-close drawers."
+        data-image="images/projects/vanities-karen/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Bathroom Vanity</span>
+            <span class="pf-card__location-pill">Karen</span>
+          </div>
+          <img src="images/projects/vanities-karen/photo-1.jpg" alt="Floating quartz double basin bathroom vanity in Karen" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Karen Private Commission</span>
+          <h3 class="pf-card__title">Floating Quartz Double Vanity</h3>
+          <p class="pf-card__desc">
+            Sculptural wall-hung vanity featuring a monolithic engineered quartz basin with integrated ramp drainage and moisture-resistant floating walnut drawer unit.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Custom Quartz Basin</span>
+            <span class="pf-spec-tag">Floating Architecture</span>
+            <span class="pf-spec-tag">Moisture-Proof Core</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 11: KITISURU HSE 32 - BREAKFAST BAR & WINE JOINERY -->
+      <article class="pf-card" data-cat="cabinetry"
+        data-title="Kitisuru HSE 32 Peninsula &amp; Bar"
+        data-location="Gated Community, Kitisuru, Nairobi"
+        data-cat-label="Architectural Joinery"
+        data-band="Band 01 &amp; 02 (Textured Concrete Panel &amp; High-Gloss White)"
+        data-scope="Kitchen peninsula breakfast bar with black granite countertop, textured architectural facing, integrated vertical wine display, overhead high-gloss storage, and solid hardwood archway."
+        data-image="images/projects/kitisuru-hse-no-32/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Kitchen &amp; Bar</span>
+            <span class="pf-card__location-pill">Kitisuru HSE 32</span>
+          </div>
+          <img src="images/projects/kitisuru-hse-no-32/photo-1.jpg" alt="Kitisuru HSE 32 Breakfast bar and custom joinery" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Kitisuru Estate Commission</span>
+          <h3 class="pf-card__title">Breakfast Bar &amp; Wine Gallery</h3>
+          <p class="pf-card__desc">
+            Open-plan breakfast counter with Nero granite top, stone-look textured base, custom vertical wine cubbies, and overhead high-gloss storage cabinets.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Black Granite Counter</span>
+            <span class="pf-spec-tag">Vertical Wine Rack</span>
+            <span class="pf-spec-tag">Solid Wood Arch</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 12: LAKE HOUSE NAIVASHA RETREAT -->
+      <article class="pf-card" data-cat="solid-wood"
+        data-title="Lake Naivasha Estate Joinery"
+        data-location="Lake Naivasha, Rift Valley"
+        data-cat-label="Lakeside Retreat"
+        data-band="Band 05 (Solid East African Hardwood &amp; Bespoke Millwork)"
+        data-scope="Full joinery package for a panoramic lakeside home — including custom solid timber window frames, kitchen base cabinetry, utility consoles, and terrace serveries."
+        data-image="images/projects/lake-house-naivasha/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Lakeside Home</span>
+            <span class="pf-card__location-pill">Lake Naivasha</span>
+          </div>
+          <img src="images/projects/lake-house-naivasha/photo-1.jpg" alt="Lake House Naivasha timber joinery installation" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Naivasha Lakehouse Project</span>
+          <h3 class="pf-card__title">Lakeside Residence Millwork</h3>
+          <p class="pf-card__desc">
+            Bespoke cabinetry engineered to withstand lakefront humidity, featuring solid hardwood architectural casements and seamless outdoor-indoor living transition.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Band 05 Solid Timber</span>
+            <span class="pf-spec-tag">Lakefront Climate-Tough</span>
+            <span class="pf-spec-tag">Custom Casements</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 13: NANYUKI A-FRAME CABIN -->
+      <article class="pf-card" data-cat="kitchens"
+        data-title="Nanyuki A-Frame Alpine Kitchen"
+        data-location="Nanyuki, Mount Kenya Region"
+        data-cat-label="Alpine Cabin"
+        data-band="Band 03 (Satin Shaker White &amp; Custom Plasterwork)"
+        data-scope="Custom kitchen cabinetry tailored to unique angled A-frame architectural geometry, white subway splashback, ceiling plaster roundels, and integrated larder storage."
+        data-image="images/projects/nanyuki-a-frame-house/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Alpine Cabin</span>
+            <span class="pf-card__location-pill">Nanyuki</span>
+          </div>
+          <img src="images/projects/nanyuki-a-frame-house/photo-1.jpg" alt="Nanyuki A-frame kitchen installation by WDI Design Studio" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Nanyuki A-Frame Project</span>
+          <h3 class="pf-card__title">Alpine A-Frame Fitted Kitchen</h3>
+          <p class="pf-card__desc">
+            Specialized spatial joinery built to conform to dramatic vaulted rooflines, incorporating crisp white shaker doors and precision corner storage solutions.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Band 03 Shaker</span>
+            <span class="pf-spec-tag">Angled Roof Geometry</span>
+            <span class="pf-spec-tag">Subway Tile Splash</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 14: SHELL OFFICE THINDIGUA - STELLA -->
+      <article class="pf-card" data-cat="commercial"
+        data-title="Shell Office Commercial Executive Suites"
+        data-location="Thindigua, Kiambu Road (Stella)"
+        data-cat-label="Commercial Office"
+        data-band="Band 01 (Commercial Grade Grey Oak Melamine)"
+        data-scope="Executive workstation suite, matching 3-drawer lockable mobile pedestal unit, cable management chase, and wall-mounted overhead archival storage credenza."
+        data-image="images/projects/shell-office-thindigua-stella/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Commercial Office</span>
+            <span class="pf-card__location-pill">Thindigua</span>
+          </div>
+          <img src="images/projects/shell-office-thindigua-stella/photo-1.jpg" alt="Shell office executive desks and overhead cabinetry in Thindigua" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Stella Commission · Shell Office</span>
+          <h3 class="pf-card__title">Executive Workstation &amp; Credenza</h3>
+          <p class="pf-card__desc">
+            Commercial-grade executive office suite in textured grey oak melamine, featuring heavy-duty drawer runners, security locks, and overhead wall filing cabinets.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Commercial Melamine</span>
+            <span class="pf-spec-tag">Lockable Pedestals</span>
+            <span class="pf-spec-tag">Overhead Archival</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 15: MARGARET ONGELLE - NYARI ESTATE -->
+      <article class="pf-card" data-cat="kitchens"
+        data-title="Margaret Ongelle Nyari Kitchen Fit-Out"
+        data-location="Nyari Estate, Nairobi"
+        data-cat-label="Kitchen Renovation"
+        data-band="Band 02 (Exotic Black-and-White Granite &amp; Charcoal)"
+        data-scope="Complete kitchen renovation, exotic polished granite countertops with matching high upstands, peninsula breakfast bar, and integrated electrical conduits."
+        data-image="images/projects/margaret-ongelle-nyari-estate/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Kitchen Renovation</span>
+            <span class="pf-card__location-pill">Nyari Estate</span>
+          </div>
+          <img src="images/projects/margaret-ongelle-nyari-estate/photo-1.jpg" alt="Margaret Ongelle Nyari Estate kitchen fit out" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Margaret Ongelle · Nyari</span>
+          <h3 class="pf-card__title">Exotic Granite &amp; Modern Joinery</h3>
+          <p class="pf-card__desc">
+            Dramatic black-and-white exotic granite worktops paired with precision-engineered under-counter cabinetry and customized electrical service integrations.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Exotic Granite</span>
+            <span class="pf-spec-tag">Under-Counter Cabinetry</span>
+            <span class="pf-spec-tag">Turnkey Execution</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 16: RUNDA MIMOSA PROJECT -->
+      <article class="pf-card" data-cat="wholehouse"
+        data-title="Runda Mimosa Luxury Residence"
+        data-location="Mimosa Drive, Runda, Nairobi"
+        data-cat-label="Whole House Fit-Out"
+        data-band="Band 03 &amp; 05 (Comprehensive Estate Millwork)"
+        data-scope="Multi-room millwork fit-out across a premier Runda mansion, incorporating main gourmet kitchen, poolside terrace bar joinery, master dressing rooms, and bathroom vanities."
+        data-image="images/projects/runda-mimosa-project/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Whole House</span>
+            <span class="pf-card__location-pill">Runda Mimosa</span>
+          </div>
+          <img src="images/projects/runda-mimosa-project/photo-1.jpg" alt="Runda Mimosa luxury residence fit out by WDI Design Studio" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Runda Mimosa Commission</span>
+          <h3 class="pf-card__title">Comprehensive Villa Millwork</h3>
+          <p class="pf-card__desc">
+            Extensive architectural fit-out for an executive Runda residence spanning custom kitchen joinery, poolside entertainment cabinetry, and master closets.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Multi-Room Scope</span>
+            <span class="pf-spec-tag">Poolside Bar Joinery</span>
+            <span class="pf-spec-tag">Master Closets</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 17: SAM - NAIVASHA GREAT RIFT LODGE -->
+      <article class="pf-card" data-cat="solid-wood"
+        data-title="Sam Great Rift Lodge Holiday Villa"
+        data-location="Great Rift Valley Lodge, Naivasha"
+        data-cat-label="Holiday Home"
+        data-band="Band 05 (Natural Timber &amp; Country Lodge Styling)"
+        data-scope="Custom lodge joinery package, solid timber open kitchen shelving, rustic entertainment cabinets, fireplace woodwork, and fitted bedroom closets."
+        data-image="images/projects/sam-naivasha-great-rift-lodge-project/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Solid Timber</span>
+            <span class="pf-card__location-pill">Great Rift Lodge</span>
+          </div>
+          <img src="images/projects/sam-naivasha-great-rift-lodge-project/photo-1.jpg" alt="Sam Great Rift Valley Lodge project joinery" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Sam Commission · Great Rift Lodge</span>
+          <h3 class="pf-card__title">Rift Valley Holiday Lodge Joinery</h3>
+          <p class="pf-card__desc">
+            Natural timber cabinetry and architectural woodwork designed to complement panoramic Rift Valley golf and lake vistas with timeless rustic warmth.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Band 05 Hardwood</span>
+            <span class="pf-spec-tag">Lodge Styling</span>
+            <span class="pf-spec-tag">Custom Shelving</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 18: MATIBA - TIGONI LIMURU -->
+      <article class="pf-card" data-cat="kitchens"
+        data-title="Matiba Tigoni Country Farmhouse"
+        data-location="Tigoni, Limuru"
+        data-cat-label="Country Farmhouse"
+        data-band="Band 05 &amp; 03 (Classic Shaker &amp; Solid Hardwood)"
+        data-scope="Tea country estate kitchen renovation, traditional painted shaker cabinetry, walk-in larder pantry shelving, boot room cabinetry, and timber counter trims."
+        data-image="images/projects/matiba-tigoni-limuru-job/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Country Kitchen</span>
+            <span class="pf-card__location-pill">Tigoni, Limuru</span>
+          </div>
+          <img src="images/projects/matiba-tigoni-limuru-job/photo-1.jpg" alt="Matiba Tigoni Limuru farmhouse kitchen by WDI" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Matiba Project · Tigoni</span>
+          <h3 class="pf-card__title">Tigoni Tea Estate Country Kitchen</h3>
+          <p class="pf-card__desc">
+            Classic farmhouse kitchen featuring deep pantry storage, handcrafted shaker cabinet profiles, and durable materials suited to misty highland conditions.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Band 03 Shaker</span>
+            <span class="pf-spec-tag">Larder Pantry</span>
+            <span class="pf-spec-tag">Highland Grade</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 19: TONNY - NDEGE ROAD KAREN -->
+      <article class="pf-card" data-cat="wardrobes"
+        data-title="Tonny Residence Fitted Wardrobes"
+        data-location="Ndege Road, Karen, Nairobi"
+        data-cat-label="Fitted Wardrobes"
+        data-band="Band 01 &amp; 03 (Two-Tone Melamine &amp; Sprayed MDF)"
+        data-scope="Custom fitted bedroom wardrobe architecture, soft-close internal drawer stacks, full-height double doors, and integrated living room wall storage."
+        data-image="images/projects/tonny-ndege-road-karen/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Wardrobes</span>
+            <span class="pf-card__location-pill">Ndege Road, Karen</span>
+          </div>
+          <img src="images/projects/tonny-ndege-road-karen/photo-1.jpg" alt="Tonny Ndege Road Karen fitted wardrobes" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Tonny Commission · Karen</span>
+          <h3 class="pf-card__title">Ndege Road Custom Closets</h3>
+          <p class="pf-card__desc">
+            Floor-to-ceiling bedroom wardrobes with internal organizer compartments, velvet drawer inserts, and smooth soft-close hardware throughout.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Full-Height Closets</span>
+            <span class="pf-spec-tag">Organizer Trays</span>
+            <span class="pf-spec-tag">Soft-Close Hinges</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 20: ZAMBEZI LIMURU - BETH -->
+      <article class="pf-card" data-cat="kitchens"
+        data-title="Beth Zambezi Modern Kitchen"
+        data-location="Zambezi, Limuru"
+        data-cat-label="Kitchen Renovation"
+        data-band="Band 03 (Satin Sprayed Lacquer Kitchen &amp; Island)"
+        data-scope="Complete kitchen transformation, bespoke shaker doors, engineered stone surfaces, undermount sink, and custom appliance recess housings."
+        data-image="images/projects/zambezi-limuru-project-beth/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Kitchen Renovation</span>
+            <span class="pf-card__location-pill">Zambezi, Limuru</span>
+          </div>
+          <img src="images/projects/zambezi-limuru-project-beth/photo-1.jpg" alt="Beth Zambezi Limuru modern kitchen by WDI Design Studio" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Beth Project · Zambezi</span>
+          <h3 class="pf-card__title">Zambezi Residence Kitchen Renovation</h3>
+          <p class="pf-card__desc">
+            Clean, light-filled kitchen redesign with crisp satin shaker finishes, generous worktop expanses, and heavy-duty drawer runners.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Band 03 Satin Lacquer</span>
+            <span class="pf-spec-tag">Quartz Tops</span>
+            <span class="pf-spec-tag">Pantry Housing</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 21: CALTON GARDENS HSE 2 - KIAMBU -->
+      <article class="pf-card" data-cat="wholehouse"
+        data-title="Calton Gardens Master Villa Fit-Out"
+        data-location="Calton Gardens Estate, Kiambu (HSE 2)"
+        data-cat-label="Whole House"
+        data-band="Band 01 &amp; 03 (Full House Joinery &amp; Wardrobes)"
+        data-scope="Turnkey cabinetry package spanning master walk-in wardrobe, three guest closets, contemporary kitchen cabinets, and floating bathroom vanities."
+        data-image="images/projects/calton-gardens-hse-no-2-kiambu/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Whole House</span>
+            <span class="pf-card__location-pill">Calton Gardens HSE 2</span>
+          </div>
+          <img src="images/projects/calton-gardens-hse-no-2-kiambu/photo-1.jpg" alt="Calton Gardens HSE 2 full house cabinetry" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Calton Gardens HSE 2</span>
+          <h3 class="pf-card__title">Complete Residential Joinery Package</h3>
+          <p class="pf-card__desc">
+            Coordinated whole-house millwork solution featuring consistent architectural finishes from entryway storage through master suites and kitchen.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Full House Fit-Out</span>
+            <span class="pf-spec-tag">4 Bedrooms + Kitchen</span>
+            <span class="pf-spec-tag">Quartz Vanities</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 22: VERNONIA APARTMENTS - KILELESHWA -->
+      <article class="pf-card" data-cat="kitchens"
+        data-title="Vernonia Penthouse Kitchen Upgrade"
+        data-location="Vernonia Apartments, Kileleshwa, Nairobi"
+        data-cat-label="Apartment Kitchen"
+        data-band="Band 02 (High-Gloss Contemporary Urban Fit-Out)"
+        data-scope="Contemporary urban apartment kitchen overhaul, breakfast bar counter, glass splashback, undermount lighting, and integrated laundry cabinet."
+        data-image="images/projects/vernonia-apatrments-kileleshwa/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Apartment Kitchen</span>
+            <span class="pf-card__location-pill">Kileleshwa</span>
+          </div>
+          <img src="images/projects/vernonia-apatrments-kileleshwa/photo-1.jpg" alt="Vernonia Apartments Kileleshwa kitchen fit out" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Vernonia Apartments Commission</span>
+          <h3 class="pf-card__title">Kileleshwa Penthouse Kitchen</h3>
+          <p class="pf-card__desc">
+            Smart urban apartment kitchen maximizing every square inch with reflective high-gloss cabinets and integrated concealed appliance enclosures.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Band 02 High-Gloss</span>
+            <span class="pf-spec-tag">Concealed Laundry</span>
+            <span class="pf-spec-tag">Breakfast Bar</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 23: DENNIS PRITT ROAD - MAHESH -->
+      <article class="pf-card" data-cat="cabinetry"
+        data-title="Dennis Pritt Road Apartment Joinery"
+        data-location="Dennis Pritt Road, Kilimani (Mahesh)"
+        data-cat-label="Apartment Joinery"
+        data-band="Band 01 &amp; 02 (Contemporary Melamine &amp; Stone)"
+        data-scope="Custom kitchen cabinetry, quartz breakfast ledge, living room TV feature storage, and fitted bedroom wardrobes."
+        data-image="images/projects/dennis-pritt-road-project-mahesh/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Living &amp; Storage</span>
+            <span class="pf-card__location-pill">Dennis Pritt, Kilimani</span>
+          </div>
+          <img src="images/projects/dennis-pritt-road-project-mahesh/photo-1.jpg" alt="Dennis Pritt road Mahesh apartment joinery" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Mahesh Project · Dennis Pritt</span>
+          <h3 class="pf-card__title">Kilimani Executive Apartment Joinery</h3>
+          <p class="pf-card__desc">
+            Space-efficient contemporary joinery package built for urban luxury living, featuring push-to-open cabinets and durable quartz surfaces.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Band 01 Melamine</span>
+            <span class="pf-spec-tag">Push-to-Open</span>
+            <span class="pf-spec-tag">Quartz Counter</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 24: TITUS - KILIMANI PROJECT -->
+      <article class="pf-card" data-cat="wardrobes"
+        data-title="Titus Kilimani Residence Closets"
+        data-location="Kilimani, Nairobi"
+        data-cat-label="Fitted Closets"
+        data-band="Band 01 (Textured Woodgrain &amp; Crisp White)"
+        data-scope="Custom fitted bedroom wardrobe architecture, deep internal shelving, velvet jewelry trays, and smooth sliding doors."
+        data-image="images/projects/titus-kilimani-project/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Wardrobes</span>
+            <span class="pf-card__location-pill">Kilimani</span>
+          </div>
+          <img src="images/projects/titus-kilimani-project/photo-1.jpg" alt="Titus Kilimani fitted bedroom wardrobes" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Titus Commission · Kilimani</span>
+          <h3 class="pf-card__title">Kilimani Fitted Wardrobe Systems</h3>
+          <p class="pf-card__desc">
+            Sleek fitted closets designed to maximize vertical bedroom volume with internal drawer stacks and German sliding running gear.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Sliding Track System</span>
+            <span class="pf-spec-tag">Internal Organizers</span>
+            <span class="pf-spec-tag">Full-Height</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 25: DIPLOMATIC RESIDENCE - ROSELYN HEIGHTS -->
+      <article class="pf-card" data-cat="kitchens"
+        data-title="Diplomatic Residence Kitchen"
+        data-location="Roselyn Heights (Norwegian Embassy)"
+        data-cat-label="Diplomatic Standard"
+        data-band="Band 03 (Heavy-Duty Polyurethane Shaker &amp; Quartz)"
+        data-scope="High-specification diplomatic staff residence kitchen, Blum certified hardware, integrated European appliances, and anti-scuff paintwork."
+        data-image="images/projects/nowegian-embassy-roselyn-heights/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Diplomatic Residence</span>
+            <span class="pf-card__location-pill">Roselyn Heights</span>
+          </div>
+          <img src="images/projects/nowegian-embassy-roselyn-heights/photo-1.jpg" alt="Roselyn Heights Norwegian Embassy diplomatic kitchen fit out" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Roselyn Heights Embassy Fit-Out</span>
+          <h3 class="pf-card__title">Diplomatic Standard Residence Kitchen</h3>
+          <p class="pf-card__desc">
+            Built to rigorous international embassy standards, featuring heavy-duty drawer slides, non-porous quartz surfaces, and reinforced cabinet carcasses.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">Embassy Grade</span>
+            <span class="pf-spec-tag">Blum® Legrabox</span>
+            <span class="pf-spec-tag">Commercial Hardware</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 26: JOGOO ROAD COMMERCIAL FIT-OUT -->
+      <article class="pf-card" data-cat="commercial"
+        data-title="Jogoo Road Commercial Fit-Out"
+        data-location="Jogoo Road, Nairobi"
+        data-cat-label="Commercial Joinery"
+        data-band="Band 01 (Commercial Grade Melamine &amp; Counters)"
+        data-scope="Custom reception desks, storage partitions, office credenzas, and staff pantry cabinetry for a commercial enterprise."
+        data-image="images/projects/jogoo-road-project/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Commercial</span>
+            <span class="pf-card__location-pill">Jogoo Road</span>
+          </div>
+          <img src="images/projects/jogoo-road-project/photo-1.jpg" alt="Jogoo Road commercial joinery and office fit out" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Commercial Enterprise Fit-Out</span>
+          <h3 class="pf-card__title">Commercial Office &amp; Reception Joinery</h3>
+          <p class="pf-card__desc">
+            Heavy-duty commercial joinery built for high daily footfall, incorporating front-of-house reception desk, staff lockers, and meeting room storage.
+          </p>
+          <div class="pf-card__specs">
+            <span class="pf-spec-tag">High-Traffic Melamine</span>
+            <span class="pf-spec-tag">Reception Counter</span>
+            <span class="pf-spec-tag">Pantry Storage</span>
+          </div>
+          <div class="pf-card__footer">
+            <span class="pf-card__cta">View Commission Details →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 27: LAVINGTON TOWN HOUSE -->
+      <article class="pf-card" data-cat="kitchens"
+        data-title="Lavington Town House Kitchen"
+        data-location="Lavington, Nairobi"
+        data-cat-label="Gourmet Kitchen"
+        data-band="Band 03 (Satin White Shaker &amp; Quartz)"
+        data-scope="Complete kitchen renovation for a modern Lavington townhouse — fitted shaker cabinetry, full-height pantry column, quartz worktops, under-cabinet lighting, and integrated cooker housing."
+        data-image="images/projects/lavington-townhouse/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Gourmet Kitchen</span>
+            <span class="pf-card__location-pill">Lavington</span>
+          </div>
+          <img src="images/projects/lavington-townhouse/photo-1.jpg" alt="Lavington town house kitchen fit out" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Lavington Town House Commission</span>
+          <h3 class="pf-card__title">Lavington Kitchen Fit-Out</h3>
+          <p class="pf-card__desc">Contemporary shaker kitchen with full pantry column, integrated appliances, and elegant quartz worktops in this Lavington townhouse.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Band 03 Shaker</span><span class="pf-spec-tag">Pantry Column</span><span class="pf-spec-tag">Quartz Tops</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 28: KITISURU VILLAS HSE 6 -->
+      <article class="pf-card" data-cat="wardrobes"
+        data-title="Kitisuru Villas HSE 6 Fitted Wardrobes"
+        data-location="Kitisuru Villas, Nairobi"
+        data-cat-label="Fitted Wardrobes"
+        data-band="Band 01 &amp; 02 (Two-Tone Melamine)"
+        data-scope="Custom bedroom fitted wardrobes for Kitisuru Villas HSE 6 — full-height sliding doors, internal organizer shelves, soft-close drawer units."
+        data-image="images/projects/kitisuru-villas-hse-6/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Wardrobes</span>
+            <span class="pf-card__location-pill">Kitisuru Villas</span>
+          </div>
+          <img src="images/projects/kitisuru-villas-hse-6/photo-1.jpg" alt="Kitisuru Villas HSE 6 fitted wardrobes" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Kitisuru Villas HSE 6</span>
+          <h3 class="pf-card__title">Kitisuru Villas Fitted Wardrobes</h3>
+          <p class="pf-card__desc">Full-height fitted sliding wardrobes with internal organizer system, soft-close drawers, and two-tone finish for a Kitisuru Villas home.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Full-Height Sliding</span><span class="pf-spec-tag">Internal Organizers</span><span class="pf-spec-tag">Soft-Close</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 29: KITISURU VILLAS PROJECT HSE 42 -->
+      <article class="pf-card" data-cat="kitchens"
+        data-title="Kitisuru Villas HSE 42 Kitchen &amp; Joinery"
+        data-location="Kitisuru Villas HSE 42, Nairobi"
+        data-cat-label="Gourmet Kitchen"
+        data-band="Band 02 &amp; 03 (High-Gloss &amp; Shaker)"
+        data-scope="Kitchen installation and fitted joinery for Kitisuru Villas HSE 42 — handleless high-gloss upper cabinets, shaker lower units, quartz countertop, and built-in microwave housing."
+        data-image="images/projects/kitisuru-villas-project-hse-42/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Gourmet Kitchen</span>
+            <span class="pf-card__location-pill">Kitisuru HSE 42</span>
+          </div>
+          <img src="images/projects/kitisuru-villas-project-hse-42/photo-1.jpg" alt="Kitisuru Villas HSE 42 kitchen" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Kitisuru Villas HSE 42</span>
+          <h3 class="pf-card__title">HSE 42 Kitchen &amp; Joinery</h3>
+          <p class="pf-card__desc">Sleek kitchen combining handleless upper cabinets with classic lower shaker doors, quartz worktops, and built-in appliance recesses in Kitisuru.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Band 02 High-Gloss</span><span class="pf-spec-tag">Band 03 Shaker</span><span class="pf-spec-tag">Quartz Tops</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 30: KAREN END PROJECT - PAUL PILOT -->
+      <article class="pf-card" data-cat="kitchens wardrobes"
+        data-title="Karen End Project — Paul &amp; Pilot Residence"
+        data-location="Karen End, Nairobi"
+        data-cat-label="Kitchen &amp; Wardrobes"
+        data-band="Band 03 &amp; 01 (Shaker Kitchen &amp; Sliding Wardrobes)"
+        data-scope="Comprehensive fit-out for a Karen residence — bespoke shaker kitchen with quartz island, master walk-in wardrobe with central dressing island, and guest bedroom fitted closets."
+        data-image="images/projects/karen-end-project-karen-paul-pilot/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Kitchen &amp; Closets</span>
+            <span class="pf-card__location-pill">Karen End</span>
+          </div>
+          <img src="images/projects/karen-end-project-karen-paul-pilot/photo-1.jpg" alt="Karen End Project kitchen and wardrobes" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Paul &amp; Pilot Commission · Karen</span>
+          <h3 class="pf-card__title">Karen Residence Full Joinery</h3>
+          <p class="pf-card__desc">Full-scope joinery: custom shaker kitchen with quartz island, master walk-in wardrobe, and guest bedroom closets delivered in Karen.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Band 03 Shaker Kitchen</span><span class="pf-spec-tag">Walk-In Wardrobe</span><span class="pf-spec-tag">Karen</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 31: KARAMA APARTMENTS PARKLANDS -->
+      <article class="pf-card" data-cat="kitchens"
+        data-title="Karama Apartments Parklands Kitchen"
+        data-location="Karama Apartments, Parklands, Nairobi"
+        data-cat-label="Apartment Kitchen"
+        data-band="Band 01 &amp; 02 (Contemporary High-Gloss)"
+        data-scope="Modern apartment kitchen fit-out at Karama Apartments, Parklands — handleless high-gloss cabinetry, engineered stone countertop, and undermount double sink."
+        data-image="images/projects/karama-apartments-parklands/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Apartment Kitchen</span>
+            <span class="pf-card__location-pill">Parklands</span>
+          </div>
+          <img src="images/projects/karama-apartments-parklands/photo-1.jpg" alt="Karama Apartments Parklands kitchen" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Karama Apartments · Parklands</span>
+          <h3 class="pf-card__title">Parklands Apartment Kitchen</h3>
+          <p class="pf-card__desc">Compact urban kitchen with high-gloss handleless cabinetry, engineered stone worktops, and undermount sink in Parklands apartment complex.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Band 02 High-Gloss</span><span class="pf-spec-tag">Engineered Stone</span><span class="pf-spec-tag">Undermount Sink</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 32: ROSEWOOD APARTMENTS -->
+      <article class="pf-card" data-cat="kitchens wardrobes"
+        data-title="Rosewood Apartments Full Fit-Out"
+        data-location="Rosewood Apartments, Nairobi"
+        data-cat-label="Apartment Fit-Out"
+        data-band="Band 02 &amp; 03 (Contemporary Melamine)"
+        data-scope="Complete apartment fit-out at Rosewood Apartments — modern kitchen cabinetry, bedroom wardrobe units, and bathroom vanity console."
+        data-image="images/projects/rosewood-apartments/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Apartment Fit-Out</span>
+            <span class="pf-card__location-pill">Rosewood Apts</span>
+          </div>
+          <img src="images/projects/rosewood-apartments/photo-1.jpg" alt="Rosewood Apartments fit out" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Rosewood Apartments Commission</span>
+          <h3 class="pf-card__title">Rosewood Full Apartment Fit-Out</h3>
+          <p class="pf-card__desc">End-to-end millwork package: fitted kitchen, bedroom wardrobes, and floating bathroom vanity for the Rosewood development.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Kitchen &amp; Wardrobes</span><span class="pf-spec-tag">Bathroom Vanity</span><span class="pf-spec-tag">Full Package</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 33: NDEGE ROAD KAREN PROJECT -->
+      <article class="pf-card" data-cat="kitchens wardrobes"
+        data-title="Ndege Road Karen Residence"
+        data-location="Ndege Road, Karen, Nairobi"
+        data-cat-label="Kitchen &amp; Wardrobes"
+        data-band="Band 03 &amp; 01 (Shaker &amp; Sliding)"
+        data-scope="Karen residence joinery — bespoke shaker kitchen with granite countertops and fitted bedroom wardrobes with sliding track doors on Ndege Road."
+        data-image="images/projects/ndege-road-karen-prject/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Kitchen &amp; Closets</span>
+            <span class="pf-card__location-pill">Ndege Rd, Karen</span>
+          </div>
+          <img src="images/projects/ndege-road-karen-prject/photo-1.jpg" alt="Ndege Road Karen kitchen and wardrobes" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Ndege Road Commission · Karen</span>
+          <h3 class="pf-card__title">Ndege Road Karen Kitchen &amp; Closets</h3>
+          <p class="pf-card__desc">Classic shaker kitchen with granite worktops paired with fully fitted bedroom sliding wardrobes for a Karen residential commission on Ndege Road.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Band 03 Shaker</span><span class="pf-spec-tag">Granite Tops</span><span class="pf-spec-tag">Sliding Wardrobes</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 34: NGONG ROAD PROJECT - FLORENCE MUEMA -->
+      <article class="pf-card" data-cat="kitchens"
+        data-title="Florence Muema Ngong Road Kitchen"
+        data-location="Ngong Road, Nairobi"
+        data-cat-label="Gourmet Kitchen"
+        data-band="Band 03 &amp; 04 (Raised Shaker &amp; Stone)"
+        data-scope="Full kitchen renovation for Florence Muema on Ngong Road — raised shaker upper cabinets, quartz countertops, integrated gas hob, and larder pantry column."
+        data-image="images/projects/ngong-road-project-florence-muema/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Gourmet Kitchen</span>
+            <span class="pf-card__location-pill">Ngong Road</span>
+          </div>
+          <img src="images/projects/ngong-road-project-florence-muema/photo-1.jpg" alt="Florence Muema Ngong Road kitchen" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Florence Muema Commission · Ngong Road</span>
+          <h3 class="pf-card__title">Ngong Road Shaker Kitchen</h3>
+          <p class="pf-card__desc">Elegant raised shaker kitchen with quartz surfaces, integrated gas hob, and larder pantry storage on Ngong Road.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Band 03 Raised Shaker</span><span class="pf-spec-tag">Quartz Tops</span><span class="pf-spec-tag">Larder Pantry</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 35: ROSE KAUME - NBO HOUSE AND MERU HOUSE -->
+      <article class="pf-card" data-cat="kitchens wardrobes"
+        data-title="Rose Kaume — Nairobi &amp; Meru Residences"
+        data-location="Nairobi &amp; Meru, Kenya"
+        data-cat-label="Multi-Property"
+        data-band="Band 03 &amp; 05 (Shaker &amp; Solid Timber)"
+        data-scope="Dual-property commission for Rose Kaume — custom kitchen and wardrobe joinery for both the Nairobi town house and the Meru country home, delivering consistent WDI craftsmanship across both locations."
+        data-image="images/projects/rose-kaume-nbo-house-and-meru-house/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Multi-Property</span>
+            <span class="pf-card__location-pill">Nairobi &amp; Meru</span>
+          </div>
+          <img src="images/projects/rose-kaume-nbo-house-and-meru-house/photo-1.jpg" alt="Rose Kaume Nairobi and Meru fit out" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Rose Kaume Commission · NBO &amp; Meru</span>
+          <h3 class="pf-card__title">Nairobi &amp; Meru Dual Residence</h3>
+          <p class="pf-card__desc">Two-location joinery delivering matched kitchens and wardrobes across a Nairobi townhouse and a Meru country home for a single client.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Dual Property</span><span class="pf-spec-tag">Kitchen &amp; Wardrobes</span><span class="pf-spec-tag">NBO + Meru</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 36: RUIRU KAMAKIS - KELLY -->
+      <article class="pf-card" data-cat="kitchens"
+        data-title="Kelly Ruiru Kamakis Kitchen"
+        data-location="Kamakis, Ruiru, Nairobi"
+        data-cat-label="Modern Kitchen"
+        data-band="Band 01 &amp; 02 (Handleless UV Gloss)"
+        data-scope="Modern kitchen at Kamakis, Ruiru — handleless UV gloss cabinetry, integrated appliances, dark quartz worktop, and breakfast counter."
+        data-image="images/projects/ruiru-kamakis-project-kelly/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Modern Kitchen</span>
+            <span class="pf-card__location-pill">Ruiru Kamakis</span>
+          </div>
+          <img src="images/projects/ruiru-kamakis-project-kelly/photo-1.jpg" alt="Kelly Ruiru Kamakis modern kitchen" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Kelly Commission · Ruiru Kamakis</span>
+          <h3 class="pf-card__title">Kamakis Modern Kitchen</h3>
+          <p class="pf-card__desc">Sleek handleless kitchen with UV gloss doors, dark quartz countertop, and integrated appliances designed for modern living in Kamakis.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Band 02 UV Gloss</span><span class="pf-spec-tag">Dark Quartz</span><span class="pf-spec-tag">Handleless</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 37: RUTH - MOIS BRIDGE KITALE -->
+      <article class="pf-card" data-cat="kitchens wardrobes"
+        data-title="Ruth Mois Bridge Residence"
+        data-location="Mois Bridge, Kitale"
+        data-cat-label="Country Residence"
+        data-band="Band 03 &amp; 05 (Shaker &amp; Solid Hardwood)"
+        data-scope="Kitchen and wardrobe fit-out for Ruth's residence in Mois Bridge, Kitale — country shaker cabinetry, solid timber accents, and bedroom fitted closets."
+        data-image="images/projects/ruth-mois-bridge-kitale/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Country Residence</span>
+            <span class="pf-card__location-pill">Mois Bridge, Kitale</span>
+          </div>
+          <img src="images/projects/ruth-mois-bridge-kitale/photo-1.jpg" alt="Ruth Mois Bridge Kitale residence kitchen" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Ruth Commission · Mois Bridge</span>
+          <h3 class="pf-card__title">Kitale Country Shaker Kitchen</h3>
+          <p class="pf-card__desc">Warm country-style shaker kitchen with solid timber accents, plus fitted bedroom wardrobes for a Mois Bridge, Kitale residence.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Band 03 Shaker</span><span class="pf-spec-tag">Solid Timber</span><span class="pf-spec-tag">Kitale</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 38: SOUTH C - ABDIKARIR -->
+      <article class="pf-card" data-cat="kitchens wardrobes"
+        data-title="Abdikarir South C Residence"
+        data-location="South C, Nairobi"
+        data-cat-label="Full Fit-Out"
+        data-band="Band 02 &amp; 03 (Contemporary)"
+        data-scope="Full residential fit-out for Abdikarir in South C — modern kitchen with handleless cabinetry, bedroom fitted wardrobes, and lounge joinery."
+        data-image="images/projects/south-c-abdikarir/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Full Fit-Out</span>
+            <span class="pf-card__location-pill">South C</span>
+          </div>
+          <img src="images/projects/south-c-abdikarir/photo-1.jpg" alt="Abdikarir South C residence fit out" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Abdikarir Commission · South C</span>
+          <h3 class="pf-card__title">South C Full Residential Fit-Out</h3>
+          <p class="pf-card__desc">Comprehensive joinery across an entire South C residence: handleless kitchen, fitted wardrobes, and custom living room cabinetry.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Kitchen + Wardrobes</span><span class="pf-spec-tag">Lounge Joinery</span><span class="pf-spec-tag">South C</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 39: SYOKIMAU HUKA JOB MWANCHI ROAD -->
+      <article class="pf-card" data-cat="kitchens"
+        data-title="Syokimau Huka Kitchen — Mwanchi Road"
+        data-location="Mwanchi Road, Syokimau"
+        data-cat-label="Modern Kitchen"
+        data-band="Band 02 (High-Gloss Contemporary)"
+        data-scope="Contemporary kitchen fit-out on Mwanchi Road, Syokimau — high-gloss cabinetry, integrated cooker, tile splashback, and engineered stone countertops."
+        data-image="images/projects/syokimau-huka-job-mwanchi-road/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Modern Kitchen</span>
+            <span class="pf-card__location-pill">Syokimau</span>
+          </div>
+          <img src="images/projects/syokimau-huka-job-mwanchi-road/photo-1.jpg" alt="Syokimau Mwanchi Road kitchen" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Syokimau Commission · Mwanchi Road</span>
+          <h3 class="pf-card__title">Syokimau Mwanchi Road Kitchen</h3>
+          <p class="pf-card__desc">High-gloss modern kitchen with engineered stone worktops, integrated cooker, and sleek tile splashback on Mwanchi Road, Syokimau.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Band 02 High-Gloss</span><span class="pf-spec-tag">Engineered Stone</span><span class="pf-spec-tag">Syokimau</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 40: SYOKIMAU MWANCHI ROAD (2nd commission) -->
+      <article class="pf-card" data-cat="wardrobes"
+        data-title="Syokimau Mwanchi Road Wardrobes"
+        data-location="Mwanchi Road, Syokimau"
+        data-cat-label="Fitted Wardrobes"
+        data-band="Band 01 (Contemporary Melamine)"
+        data-scope="Fitted bedroom wardrobes on Mwanchi Road, Syokimau — full-height hinged doors, internal organizer shelves, and hanging rails."
+        data-image="images/projects/syokimau-mwanchi-road/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Wardrobes</span>
+            <span class="pf-card__location-pill">Syokimau</span>
+          </div>
+          <img src="images/projects/syokimau-mwanchi-road/photo-1.jpg" alt="Syokimau Mwanchi Road fitted wardrobes" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Syokimau Mwanchi Road Commission</span>
+          <h3 class="pf-card__title">Syokimau Fitted Bedroom Wardrobes</h3>
+          <p class="pf-card__desc">Full-height bedroom wardrobes with internal hanging rails, shelf organizers, and soft-close hinges on Mwanchi Road, Syokimau.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Full-Height</span><span class="pf-spec-tag">Internal Rails</span><span class="pf-spec-tag">Soft-Close</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 41: MIGAA PROJECT KIRIGITI KIAMBU -->
+      <article class="pf-card" data-cat="kitchens"
+        data-title="Migaa Estate Kitchen — Kirigiti, Kiambu"
+        data-location="Kirigiti, Kiambu"
+        data-cat-label="Estate Kitchen"
+        data-band="Band 03 (Satin Shaker &amp; Quartz)"
+        data-scope="Kitchen for a gated estate home at Migaa, Kirigiti Kiambu — satin white shaker cabinetry, quartz countertops, and integrated cooker housing."
+        data-image="images/projects/migaa-project-kirigiti-kiambu/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Estate Kitchen</span>
+            <span class="pf-card__location-pill">Migaa, Kiambu</span>
+          </div>
+          <img src="images/projects/migaa-project-kirigiti-kiambu/photo-1.jpg" alt="Migaa project Kirigiti Kiambu kitchen" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Migaa Estate Commission · Kiambu</span>
+          <h3 class="pf-card__title">Migaa Estate Shaker Kitchen</h3>
+          <p class="pf-card__desc">Clean satin white shaker kitchen with quartz worktops and integrated appliances in the Migaa gated estate, Kirigiti Kiambu.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Band 03 Shaker</span><span class="pf-spec-tag">Quartz Tops</span><span class="pf-spec-tag">Kiambu</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 42: JULIET MBURU & SOLOMON - MAASI ROAD RONGAI -->
+      <article class="pf-card" data-cat="kitchens wardrobes"
+        data-title="Juliet &amp; Solomon Rongai Residence"
+        data-location="Maasi Road, Rongai"
+        data-cat-label="Rongai Residence"
+        data-band="Band 02 &amp; 03 (High-Gloss &amp; Shaker)"
+        data-scope="Joint commission for Juliet Mburu and Solomon on Maasi Road, Rongai — kitchen cabinetry with high-gloss doors and built-in wardrobes throughout."
+        data-image="images/projects/juliet-mburu-and-solomon-rongai-maasi-road-project/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Kitchen &amp; Wardrobes</span>
+            <span class="pf-card__location-pill">Rongai</span>
+          </div>
+          <img src="images/projects/juliet-mburu-and-solomon-rongai-maasi-road-project/photo-1.jpg" alt="Juliet and Solomon Rongai Maasi Road project" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Juliet &amp; Solomon Commission · Rongai</span>
+          <h3 class="pf-card__title">Maasi Road Rongai Residence</h3>
+          <p class="pf-card__desc">Kitchen and bedroom wardrobe package for a Maasi Road, Rongai home — high-gloss cabinetry paired with full-height fitted wardrobe systems.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Band 02 High-Gloss</span><span class="pf-spec-tag">Fitted Wardrobes</span><span class="pf-spec-tag">Rongai</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 43: GORDON BULINDA KITALE -->
+      <article class="pf-card" data-cat="solid-wood kitchens"
+        data-title="Gordon Bulinda Residence — Kitale"
+        data-location="Kitale, Trans Nzoia"
+        data-cat-label="Country Kitchen"
+        data-band="Band 05 (Solid Hardwood &amp; Classic Joinery)"
+        data-scope="Bespoke kitchen for Gordon Bulinda in Kitale — solid hardwood cabinetry with classic joinery details, granite countertops, and custom plate rack."
+        data-image="images/projects/gordon-bulinda-kitale/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Solid Wood Kitchen</span>
+            <span class="pf-card__location-pill">Kitale</span>
+          </div>
+          <img src="images/projects/gordon-bulinda-kitale/photo-1.jpg" alt="Gordon Bulinda Kitale solid wood kitchen" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Gordon Bulinda Commission · Kitale</span>
+          <h3 class="pf-card__title">Kitale Solid Hardwood Kitchen</h3>
+          <p class="pf-card__desc">Handcrafted solid hardwood kitchen with traditional joinery details, granite worktops, and custom plate display rack for a Kitale country home.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Band 05 Solid Hardwood</span><span class="pf-spec-tag">Granite Tops</span><span class="pf-spec-tag">Kitale</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 44: CALTON GARDENS HSE 6 -->
+      <article class="pf-card" data-cat="kitchens"
+        data-title="Calton Gardens HSE 6 Kitchen"
+        data-location="Calton Gardens Estate, Kiambu (HSE 6)"
+        data-cat-label="Estate Kitchen"
+        data-band="Band 03 (Satin White Shaker)"
+        data-scope="Kitchen fit-out for Calton Gardens HSE 6, Kiambu — satin white shaker cabinetry, quartz countertops, integrated appliances, and custom island breakfast bar."
+        data-image="images/projects/calton-gardens-hse-6-kiambu/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Estate Kitchen</span>
+            <span class="pf-card__location-pill">Calton Gardens HSE 6</span>
+          </div>
+          <img src="images/projects/calton-gardens-hse-6-kiambu/photo-1.jpg" alt="Calton Gardens HSE 6 Kiambu kitchen" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Calton Gardens HSE 6 · Kiambu</span>
+          <h3 class="pf-card__title">Calton Gardens HSE 6 Kitchen</h3>
+          <p class="pf-card__desc">Satin white shaker kitchen with quartz surfaces, integrated appliances, and island breakfast bar for a Calton Gardens Kiambu estate home.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Band 03 Shaker</span><span class="pf-spec-tag">Quartz Island</span><span class="pf-spec-tag">Calton Gardens</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 45: ZEINAB HUSSEIN - NGONG VIEW VILLAS -->
+      <article class="pf-card" data-cat="bathrooms wardrobes"
+        data-title="Zeinab Hussein Ngong View Villas"
+        data-location="Ngong View Villas, Nairobi"
+        data-cat-label="Vanity &amp; Wardrobes"
+        data-band="Band 01 &amp; Stone (Floating Vanity &amp; Wardrobes)"
+        data-scope="Bathroom vanity and bedroom wardrobe commission for Zeinab Hussein at Ngong View Villas — floating moisture-resistant vanity and full-height fitted wardrobes."
+        data-image="images/projects/zeinab-hussein-ngong-view-villas/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Vanity &amp; Wardrobes</span>
+            <span class="pf-card__location-pill">Ngong View Villas</span>
+          </div>
+          <img src="images/projects/zeinab-hussein-ngong-view-villas/photo-1.jpg" alt="Zeinab Hussein Ngong View Villas bathroom vanity" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Zeinab Hussein Commission · Ngong</span>
+          <h3 class="pf-card__title">Ngong View Villa Vanity &amp; Wardrobes</h3>
+          <p class="pf-card__desc">Floating bathroom vanity with moisture-resistant carcasses paired with full-height fitted bedroom wardrobes for Ngong View Villas.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Floating Vanity</span><span class="pf-spec-tag">Fitted Wardrobes</span><span class="pf-spec-tag">Ngong View</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+      <!-- 46: SUMMIT APARTMENTS KILELESHWA -->
+      <article class="pf-card" data-cat="kitchens"
+        data-title="Summit Apartments Kileleshwa Kitchen"
+        data-location="Summit Apartments, Kileleshwa, Nairobi"
+        data-cat-label="Apartment Kitchen"
+        data-band="Band 02 (Handleless High-Gloss)"
+        data-scope="Modern kitchen fit-out at Summit Apartments, Kileleshwa — handleless high-gloss cabinetry, quartz worktop, undermount sink, and integrated cooker housing."
+        data-image="images/projects/summit-apartments-kileleshwa/photo-1.jpg">
+        <div class="pf-card__media">
+          <div class="pf-card__badge-row">
+            <span class="pf-card__category-tag">Apartment Kitchen</span>
+            <span class="pf-card__location-pill">Kileleshwa</span>
+          </div>
+          <img src="images/projects/summit-apartments-kileleshwa/photo-1.jpg" alt="Summit Apartments Kileleshwa kitchen" loading="lazy" />
+        </div>
+        <div class="pf-card__body">
+          <span class="pf-card__client-sub">Summit Apartments Commission · Kileleshwa</span>
+          <h3 class="pf-card__title">Summit Apartments Kitchen</h3>
+          <p class="pf-card__desc">Sleek handleless high-gloss kitchen with quartz worktops, undermount sink, and integrated appliance housing at Summit Apartments, Kileleshwa.</p>
+          <div class="pf-card__specs"><span class="pf-spec-tag">Band 02 High-Gloss</span><span class="pf-spec-tag">Quartz Tops</span><span class="pf-spec-tag">Kileleshwa</span></div>
+          <div class="pf-card__footer"><span class="pf-card__cta">View Commission Details →</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FEATURED PROJECT SPOTLIGHT (AUTHENTIC COMMISSION)
+     ═══════════════════════════════════════════════════════════ -->
+<section class="featured-spotlight" aria-labelledby="featured-heading">
+  <div class="container">
+    <div class="featured-spotlight__grid">
+      <div class="featured-spotlight__img">
+        <img src="images/projects/kitisuru-villas-hussein-and-anissa-kitchen/photo-1.jpg" alt="Hussein & Anissa Kitchen Installation in Kitisuru Villas" loading="lazy" />
+      </div>
+
+      <div class="featured-spotlight__body">
+        <div class="portfolio-hero__badge" style="margin-bottom:14px;">
+          <span>✦ Spotlight Case Study</span>
+        </div>
+        <h2 class="t-h1" id="featured-heading" style="margin-bottom:18px;">
+          Hussein &amp; Anissa Villa,<br/>Kitisuru Gated Estate.
+        </h2>
+        <p class="t-body" style="margin-bottom:24px;">
+          A turnkey kitchen commission delivered for a premier villa in Kitisuru. The brief required seamless connection between the kitchen prep area and formal dining room, fulfilled by a large waterfall quartz island with breakfast seating, classic raised shaker doors, and integrated pantry housings.
+        </p>
+
+        <div class="lightbox-spec-grid" style="margin-bottom:32px;">
+          <div class="lightbox-spec-item">
+            <strong>Finish Band</strong>
+            <span>Band 03 &amp; 04 Raised Shaker</span>
+          </div>
+          <div class="lightbox-spec-item">
+            <strong>Countertops</strong>
+            <span>Calacatta Quartz Waterfall</span>
+          </div>
+          <div class="lightbox-spec-item">
+            <strong>Hardware</strong>
+            <span>Blum® Soft-Close Systems</span>
+          </div>
+          <div class="lightbox-spec-item">
+            <strong>Location</strong>
+            <span>Kitisuru, Nairobi</span>
+          </div>
+          <div class="lightbox-spec-item">
+            <strong>Client Type</strong>
+            <span>Private Homeowner Villa</span>
+          </div>
+          <div class="lightbox-spec-item">
+            <strong>Timeline</strong>
+            <span>4 Weeks Fabrication + On-Site</span>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="contact.html?service=cabinetry&band=5&project=Karen%20Villa%20Kitchen&location=Karen,%20Nairobi&details=Inquiring%20about%20a%20luxury%20kitchen%20installation%20inspired%20by%20the%20featured%20Karen%20Villa%20project." class="btn btn-primary" id="featured-quote-btn">
+            Commission a Similar Kitchen
+          </a>
+          <a href="https://wa.me/254718923740" class="btn btn-outline" target="_blank" rel="noopener">
+            WhatsApp Studio
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LIGHTBOX DETAIL MODAL — GALLERY WITH VIDEO
+     ═══════════════════════════════════════════════════════════ -->
+<div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Project details modal">
+  <div class="lightbox-content">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close modal">&times;</button>
+
+    <!-- Main viewer -->
+    <div class="lightbox-main-viewer" id="lb-main-viewer">
+      <img id="lb-main-img" src="" alt="" style="display:block;" />
+      <video id="lb-main-video" controls playsinline style="display:none;width:100%;height:100%;object-fit:cover;"></video>
+      <button class="lb-nav-btn lb-nav-prev" id="lb-prev" aria-label="Previous">&#8592;</button>
+      <button class="lb-nav-btn lb-nav-next" id="lb-next" aria-label="Next">&#8594;</button>
+    </div>
+
+    <!-- Thumbnail strip -->
+    <div class="lightbox-thumb-strip" id="lb-thumb-strip"></div>
+
+    <!-- Details -->
+    <div class="lightbox-body">
+      <div class="lightbox-category" id="modal-category">Gourmet Kitchen</div>
+      <h2 class="lightbox-title" id="modal-title">Project Title</h2>
+      <p class="lightbox-location" id="modal-location">Location, Nairobi</p>
+      <p class="lightbox-desc" id="modal-desc">Project description.</p>
+      <div class="lightbox-spec-grid">
+        <div class="lightbox-spec-item"><strong>Finish Band</strong><span id="modal-band">Band 03</span></div>
+        <div class="lightbox-spec-item"><strong>Hardware &amp; Craft</strong><span>Blum® Soft-Close &amp; Precision Joinery</span></div>
+        <div class="lightbox-spec-item"><strong>Fabrication</strong><span>WDI In-House Nairobi Workshop</span></div>
+      </div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+        <a href="contact.html" class="btn btn-primary" id="modal-cta-quote">Request Quotation for Similar Space</a>
+        <a href="https://wa.me/254718923740" class="btn btn-outline" target="_blank" rel="noopener">Ask on WhatsApp (0718 923 740)</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     CTA STRIP
+     ═══════════════════════════════════════════════════════════ -->
+<section style="background:var(--c-bg);padding-block:90px;text-align:center;border-top:1px solid var(--c-border);">
+  <div class="container">
+    <p class="t-label" style="display:block;margin-bottom:14px;">Your Commission</p>
+    <h2 class="t-h1" style="margin-bottom:18px;">Ready to discuss your project?</h2>
+    <p class="t-body" style="max-width:540px;margin:0 auto 36px;">
+      Share your drawings or schedule an on-site consultation anywhere in Nairobi and across Kenya.
+    </p>
+    <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
+      <a href="contact.html?service=cabinetry&stage=planning&details=Inquiring%20about%20commissioning%20a%20bespoke%20residential%20project%20featured%20in%20your%20portfolio." class="btn btn-primary" id="portfolio-final-cta">Request a Quotation</a>
+      <a href="https://wa.me/254718923740" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp Us Direct</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__brand-name">WDI Design Studio</div>
+        <div class="footer__brand-tag">Bespoke Cabinetry · Renovations · Interior Fit-Outs</div>
+        <p class="footer__desc">Bespoke cabinetry and interior architecture crafted in Kenya for homes, villas and developments.</p>
+      </div>
+      <div>
+        <div class="footer__heading">Navigation</div>
+        <ul class="footer__links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="cabinetry.html">Cabinetry Finishes</a></li>
+          <li><a href="renovations.html">Renovations</a></li>
+          <li><a href="portfolio.html">Our Work</a></li>
+          <li><a href="contact.html">Contact &amp; Quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__heading">Services</div>
+        <ul class="footer__links">
+          <li><a href="cabinetry.html">Custom Cabinetry</a></li>
+          <li><a href="renovations.html#reno-kitchen">Kitchen Renovations</a></li>
+          <li><a href="renovations.html#reno-bathroom">Bathroom Renovations</a></li>
+          <li><a href="portfolio.html?filter=cabinetry">TV Media Feature Walls</a></li>
+          <li><a href="cabinetry.html#band-5">Solid Timber Pieces</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__heading">Contact &amp; Studio</div>
+        <div class="footer__contact-item">
+          <strong>Phone &amp; WhatsApp</strong>
+          <a href="https://wa.me/254718923740" style="color:var(--c-gold);">0718 923 740</a>
+        </div>
+        <div class="footer__contact-item">
+          <strong>Workshop Location</strong>
+          Kayaba Lane, Enterprise Road, Industrial Area, Nairobi.
+        </div>
+        <div class="footer__contact-item">
+          <strong>Locations Served</strong>
+          Karen · Runda · Kitisuru · Westlands · Kiambu · Naivasha · Nanyuki · Across Kenya
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 WDI Design Studio. All rights reserved.</p>
+      <div class="footer__legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  // Filter Tabs Handler
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const pfCards = document.querySelectorAll('.pf-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      pfCards.forEach(card => {
+        const cat = card.dataset.cat || '';
+        const cats = cat.split(' ');
+        const show = (filter === 'all' || cats.includes(filter));
+        card.style.display = show ? 'flex' : 'none';
+      });
+    });
+  });
+
+  // ─── LIGHTBOX GALLERY ENGINE ─────────────────────────────────────────────
+  const modal          = document.getElementById('lightbox-modal');
+  const modalClose     = document.getElementById('lightbox-close');
+  const lbMainImg      = document.getElementById('lb-main-img');
+  const lbMainVideo    = document.getElementById('lb-main-video');
+  const lbThumbStrip   = document.getElementById('lb-thumb-strip');
+  const lbPrev         = document.getElementById('lb-prev');
+  const lbNext         = document.getElementById('lb-next');
+  const modalCategory  = document.getElementById('modal-category');
+  const modalTitle     = document.getElementById('modal-title');
+  const modalLocation  = document.getElementById('modal-location');
+  const modalDesc      = document.getElementById('modal-desc');
+  const modalBand      = document.getElementById('modal-band');
+  const modalCtaQuote  = document.getElementById('modal-cta-quote');
+
+  let galleryItems = []; // { type:'img'|'video', src }
+  let currentIndex = 0;
+
+  // Derive slug from image path: images/projects/{slug}/photo-1.jpg → {slug}
+  function slugFromImage(imgPath) {
+    const m = imgPath.match(/images\/projects\/([^/]+)\//);
+    return m ? m[1] : null;
+  }
+
+  // Show item at index
+  function showItem(idx) {
+    if (!galleryItems.length) return;
+    idx = ((idx % galleryItems.length) + galleryItems.length) % galleryItems.length;
+    currentIndex = idx;
+    const item = galleryItems[idx];
+
+    // Update main viewer
+    if (item.type === 'video') {
+      lbMainImg.style.display  = 'none';
+      lbMainVideo.style.display = 'block';
+      lbMainVideo.src = item.src;
+      lbMainVideo.currentTime = 0;
+    } else {
+      lbMainVideo.pause();
+      lbMainVideo.src = '';
+      lbMainVideo.style.display = 'none';
+      lbMainImg.style.display  = 'block';
+      lbMainImg.src = item.src;
+      lbMainImg.alt = modalTitle.textContent || '';
+    }
+
+    // Update thumb active state
+    lbThumbStrip.querySelectorAll('.lb-thumb').forEach((t, i) => {
+      t.classList.toggle('active', i === idx);
+    });
+  }
+
+  // Build thumbnail strip
+  function buildThumbs() {
+    lbThumbStrip.innerHTML = '';
+    galleryItems.forEach((item, i) => {
+      const thumb = document.createElement('div');
+      thumb.className = 'lb-thumb' + (i === 0 ? ' active' : '');
+      if (item.type === 'video') {
+        thumb.innerHTML = `<div class="lb-thumb-video">&#9654;</div>
+          <span class="lb-thumb-video-label">Video</span>`;
+      } else {
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.alt = 'Project photo ' + (i + 1);
+        img.loading = 'lazy';
+        thumb.appendChild(img);
+      }
+      thumb.addEventListener('click', () => showItem(i));
+      lbThumbStrip.appendChild(thumb);
+    });
+  }
+
+  // Open lightbox for a project card
+  pfCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const title    = card.dataset.title    || '';
+      const location = card.dataset.location || '';
+      const category = card.dataset.catLabel || '';
+      const band     = card.dataset.band     || '';
+      const scope    = card.dataset.scope    || '';
+      const imgBase  = card.dataset.image    || '';   // e.g. images/projects/slug/photo-1.jpg
+
+      const slug = slugFromImage(imgBase);
+
+      // Build gallery: up to 3 photos
+      galleryItems = [];
+      for (let n = 1; n <= 3; n++) {
+        const src = imgBase.replace(/photo-\d+\.jpg$/, `photo-${n}.jpg`);
+        galleryItems.push({ type: 'img', src });
+      }
+      // Always try the project video by slug
+      if (slug) {
+        galleryItems.push({ type: 'video', src: `images/projects/videos/${slug}.mp4` });
+      }
+
+      // Populate details
+      modalTitle.textContent    = title;
+      modalCategory.textContent = category;
+      modalLocation.textContent = location;
+      modalDesc.textContent     = scope;
+      modalBand.textContent     = band;
+
+      // Dynamically answer enquiry form questions from this build
+      let svc = 'cabinetry';
+      const catLower = (category || '').toLowerCase();
+      if (catLower.includes('bathroom') || catLower.includes('vanity')) svc = 'bathroom';
+      else if (catLower.includes('solid wood') || catLower.includes('hardwood')) svc = 'solid-wood';
+      else if (catLower.includes('renovation') || catLower.includes('turnkey')) svc = 'renovation';
+      else if (catLower.includes('commercial') || catLower.includes('office')) svc = 'other';
+
+      let bandNum = '';
+      const bandMatch = (band || '').match(/Band\s*0?(\d)/i);
+      if (bandMatch) bandNum = bandMatch[1];
+
+      const queryParams = new URLSearchParams({
+        service: svc,
+        project: title,
+        location: location || '',
+        details: `I am interested in commissioning a bespoke build inspired by "${title}" (${category}${band ? ' · ' + band : ''}) in ${location || 'Nairobi'}.`
+      });
+      if (bandNum) queryParams.set('band', bandNum);
+
+      modalCtaQuote.href = `contact.html?${queryParams.toString()}`;
+
+      buildThumbs();
+      showItem(0);
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  // Navigation arrows
+  lbPrev && lbPrev.addEventListener('click', (e) => { e.stopPropagation(); showItem(currentIndex - 1); });
+  lbNext && lbNext.addEventListener('click', (e) => { e.stopPropagation(); showItem(currentIndex + 1); });
+
+  // Keyboard arrow support
+  document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('active')) return;
+    if (e.key === 'ArrowLeft')  showItem(currentIndex - 1);
+    if (e.key === 'ArrowRight') showItem(currentIndex + 1);
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // Close
+  const closeModal = () => {
+    lbMainVideo.pause();
+    lbMainVideo.src = '';
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  modalClose && modalClose.addEventListener('click', closeModal);
+  modal && modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+</script>
+</body>
+</html>
+
