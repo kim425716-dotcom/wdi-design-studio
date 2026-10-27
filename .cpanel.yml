@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=$(pwd -P | sed 's|/repositories/.*||')/public_html
+    - /bin/cp -R * $DEPLOYPATH 2>/dev/null || /bin/cp -rf * $DEPLOYPATH
