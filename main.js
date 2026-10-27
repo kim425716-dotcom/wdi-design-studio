@@ -451,65 +451,84 @@
       }, 200);
     }
 
-    // 7. Enhanced Form Submit with WhatsApp Direct Continuity
+    // 7. Form Submit → Send directly to WDI Studio WhatsApp
     enquiryForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      const name = document.getElementById('field-name')?.value.trim() || '';
-      const phone = document.getElementById('field-phone')?.value.trim() || '';
-      const email = document.getElementById('field-email')?.value.trim() || '';
-      const loc = document.getElementById('field-location')?.value.trim() || '';
-      const details = document.getElementById('field-details')?.value.trim() || '';
-      const stage = document.getElementById('field-stage')?.value || '';
+      const name    = document.getElementById('field-name')?.value.trim()     || '';
+      const phone   = document.getElementById('field-phone')?.value.trim()    || '';
+      const email   = document.getElementById('field-email')?.value.trim()    || '';
+      const loc     = document.getElementById('field-location')?.value.trim() || '';
+      const details = document.getElementById('field-details')?.value.trim()  || '';
+      const stage   = document.getElementById('field-stage')?.value           || '';
 
-      const checkedServices = Array.from(document.querySelectorAll('input[name="service"]:checked')).map(cb => cb.closest('label')?.textContent.trim() || cb.value);
-      const checkedBand = document.querySelector('input[name="band"]:checked')?.closest('label')?.textContent.trim() || '';
+      const checkedServices = Array.from(document.querySelectorAll('input[name="service"]:checked'))
+        .map(cb => cb.closest('label')?.textContent.trim() || cb.value);
+      const checkedBand = document.querySelector('input[name="band"]:checked')
+        ?.closest('label')?.textContent.trim() || '';
 
       if (!name || !phone || !loc) {
-        alert('Please fill in all required fields (Name, Phone/WhatsApp, and Project Location).');
+        ['field-name', 'field-phone', 'field-location'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el && !el.value.trim()) {
+            el.style.borderColor = 'var(--c-gold)';
+            setTimeout(() => { el.style.borderColor = ''; }, 2500);
+          }
+        });
+        alert('Please fill in all required fields: Name, Phone/WhatsApp, and Project Location.');
         return;
       }
 
-      const formWrap = document.getElementById('form-wrap');
+      const stageLabels = {
+        'planning': 'Planning / design stage',
+        'construction': 'Under construction',
+        'underway': 'Renovation already underway',
+        'complete': 'Space complete — adding cabinetry'
+      };
+
+      // Build the WhatsApp message
+      const waLines = [
+        '*New Enquiry — WDI Design Studio*',
+        '',
+        `*Client:* ${name}`,
+        `*Phone:* ${phone}`,
+        email    ? `*Email:* ${email}` : '',
+        `*Location:* ${loc}`,
+        checkedServices.length ? `*Service(s):* ${checkedServices.join(', ')}` : '',
+        checkedBand ? `*Finish Band:* ${checkedBand}` : '',
+        stage ? `*Project Stage:* ${stageLabels[stage] || stage}` : '',
+        details ? `\n*Project Details:*\n${details}` : ''
+      ].filter(Boolean).join('\n');
+
+      const waUrl = `https://wa.me/254718923740?text=${encodeURIComponent(waLines)}`;
+
+      // Open WhatsApp immediately in new tab
+      window.open(waUrl, '_blank', 'noopener');
+
+      // Show success state
+      const formWrap    = document.getElementById('form-wrap');
       const formSuccess = document.getElementById('form-success');
-      if (formWrap) formWrap.style.display = 'none';
+      if (formWrap)    formWrap.style.display = 'none';
       if (formSuccess) {
-        formSuccess.style.display = 'block';
+        formSuccess.style.cssText = 'display:flex;flex-direction:column;align-items:center;';
 
-        // Prepare WhatsApp forwarding text
-        const waLines = [
-          `*New WDI Design Studio Consultation Request*`,
-          `👤 *Client:* ${name}`,
-          `📞 *Phone:* ${phone}`,
-          email ? `✉️ *Email:* ${email}` : '',
-          `📍 *Location:* ${loc}`,
-          checkedServices.length ? `🛠️ *Services:* ${checkedServices.join(', ')}` : '',
-          checkedBand ? `✨ *Finish Band:* ${checkedBand}` : '',
-          stage ? `📐 *Stage:* ${stage}` : '',
-          details ? `📝 *Project Details:*\n${details}` : ''
-        ].filter(Boolean).join('\n');
+        const titleEl = formSuccess.querySelector('.form-success__title');
+        if (titleEl) titleEl.textContent = 'Enquiry sent to WhatsApp!';
+        const descEl = formSuccess.querySelector('p.t-body');
+        if (descEl) descEl.textContent = 'Your enquiry has been sent directly to the WDI Design Studio WhatsApp. The team will be in touch shortly.';
 
-        const waUrl = `https://wa.me/254718923740?text=${encodeURIComponent(waLines)}`;
-
-        // Check if WhatsApp continuation button already exists or append
+        // Fallback button in case browser blocked the popup
         let waBtn = document.getElementById('success-whatsapp-btn');
         if (!waBtn) {
           waBtn = document.createElement('a');
-          waBtn.id = 'success-whatsapp-btn';
+          waBtn.id        = 'success-whatsapp-btn';
           waBtn.className = 'btn btn-primary';
-          waBtn.style.marginTop = '16px';
-          waBtn.style.display = 'inline-flex';
-          waBtn.target = '_blank';
-          waBtn.rel = 'noopener';
-          waBtn.innerHTML = `
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px;"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.23 8.23z"/></svg>
-            Send Direct to Studio WhatsApp
-          `;
+          waBtn.style.cssText = 'margin-top:16px;display:inline-flex;align-items:center;gap:8px;';
+          waBtn.target    = '_blank';
+          waBtn.rel       = 'noopener';
+          waBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.23 8.23z"/></svg> Open WhatsApp`;
           const backHome = formSuccess.querySelector('a.btn');
-          if (backHome) {
-            backHome.parentElement.insertBefore(waBtn, backHome);
-          } else {
-            formSuccess.appendChild(waBtn);
-          }
+          if (backHome) backHome.parentElement.insertBefore(waBtn, backHome);
+          else formSuccess.appendChild(waBtn);
         }
         waBtn.href = waUrl;
       }
