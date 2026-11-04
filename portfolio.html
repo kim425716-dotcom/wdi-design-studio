@@ -2662,18 +2662,11 @@
 
       const slug = slugFromImage(imgBase);
 
-      // Build gallery: up to 3 photos
+      // Build gallery: dynamically probe for ALL available photos
       galleryItems = [];
-      for (let n = 1; n <= 3; n++) {
-        const src = imgBase.replace(/photo-\d+\.jpg$/, `photo-${n}.jpg`);
-        galleryItems.push({ type: 'img', src });
-      }
-      // Always try the project video by slug
-      if (slug) {
-        galleryItems.push({ type: 'video', src: `images/projects/videos/${slug}.mp4` });
-      }
+      const videoSrc = slug ? `images/projects/videos/${slug}.mp4` : null;
 
-      // Populate details
+      // Populate details immediately
       modalTitle.textContent    = title;
       modalCategory.textContent = category;
       modalLocation.textContent = location;
@@ -2702,11 +2695,40 @@
 
       modalCtaQuote.href = `contact.html?${queryParams.toString()}`;
 
+      // Show modal immediately with photo-1 while we probe for the rest
+      galleryItems.push({ type: 'img', src: imgBase });
       buildThumbs();
       showItem(0);
-
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
+
+      // Probe remaining photos asynchronously (photo-2 ... up to photo-200)
+      (function probeNext(n) {
+        if (n > 200) { tryVideo(); return; }
+        const src = imgBase.replace(/photo-\d+\.jpg$/, `photo-${n}.jpg`);
+        const test = new Image();
+        test.onload = function() {
+          galleryItems.push({ type: 'img', src });
+          buildThumbs();
+          showItem(currentIndex);
+          probeNext(n + 1);
+        };
+        test.onerror = function() { tryVideo(); };
+        test.src = src;
+      })(2);
+
+      function tryVideo() {
+        if (!videoSrc) return;
+        const v = document.createElement('video');
+        v.preload = 'metadata';
+        v.onloadedmetadata = function() {
+          galleryItems.push({ type: 'video', src: videoSrc });
+          buildThumbs();
+          showItem(currentIndex);
+        };
+        v.onerror = function() {};
+        v.src = videoSrc;
+      }
     });
   });
 
